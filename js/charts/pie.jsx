@@ -46,7 +46,6 @@ define([
         data: this.props.data,
         accessor: this.props.accessor || identity
       });
-      console.log("props", this.props);
       var self = this;
       var coefficients = this.state.expanded;
       var slices = chart.curves.map(function(c, i) {
@@ -64,7 +63,6 @@ define([
       var selected = _.find(this.props.data, function(c, i) {
         return coefficients[i] === 1;
       });
-      console.log("selected", selected);
       var table = selected ?
         <div className="country-info">
           <h4>{ selected.name }</h4>
