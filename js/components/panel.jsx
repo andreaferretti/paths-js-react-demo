@@ -1,24 +1,29 @@
 define([
   'react',
-], function(React) {
+  'react-bootstrap/Row',
+  'react-bootstrap/Col'
+], function(React, Row, Col) {
   return React.createClass({
     render: function() {
       return (
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">{ this.props.title }</h2>
-            <span class="links">
-              <a>Coffescript</a>
-              <a>HTML</a>
-            </span>
-          </div>
+        <Row>
+          <Col md={6}>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h2 className="panel-title">{ this.props.title }</h2>
+                <span className="links">
+                  <a>Source</a>
+                </span>
+              </div>
 
-          <div class="panel-body">
-            <p class="alert alert-info">{ this.props.text }</p>
+              <div className="panel-body">
+                <p className="alert alert-info">{ this.props.text }</p>
 
-            { this.props.children }
-          </div>
-        </div>
+                { this.props.children }
+              </div>
+            </div>
+          </Col>
+        </Row>
     )}
   });
 });

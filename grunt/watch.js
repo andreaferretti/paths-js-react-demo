@@ -11,6 +11,15 @@ module.exports = {
       livereload: '<%= livereload %>'
     }
   },
+  css: {
+    files: [
+      '<%= css %>/{,**/}*.css'
+    ],
+    tasks: ['copy:server'],
+    options: {
+      livereload: '<%= livereload %>'
+    }
+  },
   files: {
     files: [
       '<%= tmp %>/{,**/}*.html',

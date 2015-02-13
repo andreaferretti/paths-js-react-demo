@@ -25,12 +25,8 @@ define([
       return (
         <div className="container">
           <Panel title="Filter list" text="Type to filter states">
-            <Row>
-              <Col md={4}>
-                <Search valueLink={ this.linkState("value") } />
-                <List data={ countries } query={ this.state.value } />
-              </Col>
-            </Row>
+            <Search valueLink={ this.linkState("value") } />
+            <List data={ countries } query={ this.state.value } />
           </Panel>
         </div>
     )}

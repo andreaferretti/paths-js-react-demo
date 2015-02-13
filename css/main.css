@@ -1,0 +1,20 @@
+.panel-title {
+  display: inline;
+}
+
+.links {
+  float: right;
+}
+
+.links  a {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.modal {
+  display: block;
+}
+
+.modal-dialog {
+  width: 800px;
+}
