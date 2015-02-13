@@ -1,5 +1,5 @@
 module.exports = {
-  server: {
+  compile: {
     files: [
       {
         expand: true,

@@ -1,14 +1,14 @@
 module.exports = {
   server: [
     'copy:server',
-    'react:server',
+    'react:compile',
     'connect:server',
     'watch'
   ],
   build: [
     'clean',
     'copy:server',
-    'react:server',
+    'react:compile',
     'requirejs:compile',
     'copy:css',
     'clean:tmp'
