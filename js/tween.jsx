@@ -6,8 +6,10 @@ define(['react'], function(React) {
       });
     }
     if (typeof b === 'object') {
-      var res = {};
-      for (k in b) {
+      var res = {}, k;
+      for (var k in b) {
+        // No need to check hasOwnProperty,
+        // we are working with object literals
         res[k] = interpolate(a[k], b[k], t, d, f);
       }
       return res;
@@ -18,15 +20,14 @@ define(['react'], function(React) {
     return a;
   }
 
-  function shallowClone(obj) {
-    var ret = {};
-    for (var key in obj) {
-      if (!obj.hasOwnProperty(key)) {
-        continue;
+  function copy(obj) {
+    var res = {}, k;
+    for (k in obj) {
+      if (obj.hasOwnProperty(k)) {
+        res[k] = obj[k];
       }
-      ret[key] = obj[key];
     }
-    return ret;
+    return res;
   }
 
   var easingTypes = {
@@ -152,7 +153,7 @@ define(['react'], function(React) {
       tweenState: function(target, options) {
         options = options || {};
         var start = Date.now();
-        var initialState = shallowClone(this.state);
+        var initialState = copy(this.state);
         var duration = options.duration || 500;
         var easing = options.easing || easingTypes.easeInOutQuad;
         var self = this;
