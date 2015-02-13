@@ -18,3 +18,34 @@
 .modal-dialog {
   width: 800px;
 }
+
+/* Pie */
+
+#pie svg {
+  float: left;
+  margin-left: -40px;
+}
+
+#pie text {
+  font-size: 10px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+#pie path {
+  cursor: pointer;
+}
+
+#pie path:hover {
+  opacity: 0.8;
+}
+
+#pie .country-info {
+  float: right;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #eeeeee;
+}

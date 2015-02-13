@@ -3,6 +3,7 @@ requirejs.config({
   paths: {
     'react':               '../../bower_components/react/react-with-addons',
     'react-bootstrap':     '../../bower_components/react-bootstrap',
+    'react-tween-state':   '../../bower_components/react-tween-state/index-bower',
     'q':                   '../../bower_components/q/q',
     'pajamas':             '../../bower_components/pajamas/dist/pajamas',
     'lodash':              '../../bower_components/lodash/lodash',

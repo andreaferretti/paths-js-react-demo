@@ -1,11 +1,11 @@
 define([
   'react',
   'react-bootstrap/Row',
-  'react-bootstrap/Col',
   './search',
   './list',
-  './panel'
-], function(React, Row, Col, Search, List, Panel) {
+  './panel',
+  './pie'
+], function(React, Row, Search, List, Panel, Pie) {
   var countries = [
     { name: 'Italy', population: 59859996 },
     { name: 'Mexico', population: 118395054 },
@@ -24,10 +24,11 @@ define([
     render: function() {
       return (
         <div className="container">
-          <Panel title="Filter list" text="Type to filter states">
-            <Search valueLink={ this.linkState("value") } />
-            <List data={ countries } query={ this.state.value } />
-          </Panel>
+          <Row>
+            <Panel title="Filter list" text="Type to filter states">
+              <Pie />
+            </Panel>
+          </Row>
         </div>
     )}
   });
