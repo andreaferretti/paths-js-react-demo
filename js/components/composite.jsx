@@ -25,7 +25,7 @@ define([
       return (
         <div className="container">
           <Row>
-            <Panel title="Filter list" text="Type to filter states">
+            <Panel title="Pie Chart" text="Here is a pie chart example. Sectors are clickable">
               <Pie />
             </Panel>
           </Row>
