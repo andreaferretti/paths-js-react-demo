@@ -4,6 +4,7 @@ module.exports = function(grunt) {
       bower: 'bower_components',
       src: 'js',
       css: 'css',
+      fonts: 'fonts',
       dist: 'dist',
       tmp: '.tmp',
       port: 9000,

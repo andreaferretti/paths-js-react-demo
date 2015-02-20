@@ -31,5 +31,14 @@ module.exports = {
         dest: '<%= dist %>/css/bootstrap.min.css'
       }
     ]
+  },
+  fonts: {
+    files: [
+      {
+        expand: true,
+        src: ['<%= fonts %>/{,**/}*.*'],
+        dest: '<%= dist %>'
+      }
+    ]
   }
 };

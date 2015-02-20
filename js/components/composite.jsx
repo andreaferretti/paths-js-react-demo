@@ -1,13 +1,11 @@
 define([
   'react',
   'react-bootstrap/Row',
-  './search',
-  './list',
   './panel',
   './logo',
   './pie',
   './timeline'
-], function(React, Row, Search, List, Panel, Logo, Pie, Timeline) {
+], function(React, Row, Panel, Logo, Pie, Timeline) {
   return React.createClass({
     render: function() {
       return (
