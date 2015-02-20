@@ -23,6 +23,40 @@
   width: 800px;
 }
 
+/*Logo*/
+
+@font-face {
+  font-family: "Forque";
+  src: url('../fonts/Forque.woff') format('woff'),
+    url('../fonts/Forque.svg') format('svg'),
+    url('../fonts/Forque.ttf') format('truetype'),
+    url('../fonts/Forque.eot') format('embedded-opentype');
+}
+
+#logo {
+  padding-left: 340px;
+}
+
+#logo svg {
+  margin-top: -25px;
+  margin-bottom: 25px;
+}
+
+#logo h1 {
+  font-family: Forque;
+  font-size: 80px;
+  margin-left: 130px;
+}
+
+#logo h1 a, #logo h1 a:hover {
+  color: #333333;
+  text-decoration: none;
+}
+
+#logo path, #logo circle {
+  cursor: pointer;
+}
+
 /* Pie */
 
 #pie svg {
