@@ -9,9 +9,6 @@ define([
           <div className="panel panel-default">
             <div className="panel-heading">
               <h2 className="panel-title">{ this.props.title }</h2>
-              <span className="links">
-                <a>Source</a>
-              </span>
             </div>
 
             <div className="panel-body">

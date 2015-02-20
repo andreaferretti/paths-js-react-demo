@@ -4,8 +4,9 @@ define([
   './search',
   './list',
   './panel',
-  './pie'
-], function(React, Row, Search, List, Panel, Pie) {
+  './pie',
+  './timeline'
+], function(React, Row, Search, List, Panel, Pie, Timeline) {
   return React.createClass({
     render: function() {
       return (
@@ -13,6 +14,9 @@ define([
           <Row>
             <Panel title="Pie Chart" text="Here is a pie chart example. Sectors are clickable">
               <Pie />
+            </Panel>
+            <Panel title="Line Chart" text="Here is a zoomable timeline">
+              <Timeline />
             </Panel>
           </Row>
         </div>
