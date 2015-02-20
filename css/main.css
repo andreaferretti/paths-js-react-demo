@@ -1,0 +1,100 @@
+.clickable {
+  cursor: pointer;
+}
+
+.panel-title {
+  display: inline;
+}
+
+.links {
+  float: right;
+}
+
+.links  a {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.modal {
+  display: block;
+}
+
+.modal-dialog {
+  width: 800px;
+}
+
+/*Logo*/
+
+@font-face {
+  font-family: "Forque";
+  src: url('../fonts/Forque.woff') format('woff'),
+    url('../fonts/Forque.svg') format('svg'),
+    url('../fonts/Forque.ttf') format('truetype'),
+    url('../fonts/Forque.eot') format('embedded-opentype');
+}
+
+#logo {
+  padding-left: 340px;
+}
+
+#logo svg {
+  margin-top: -25px;
+  margin-bottom: 25px;
+}
+
+#logo h1 {
+  font-family: Forque;
+  font-size: 80px;
+  margin-left: 130px;
+}
+
+#logo h1 a, #logo h1 a:hover {
+  color: #333333;
+  text-decoration: none;
+}
+
+#logo path, #logo circle {
+  cursor: pointer;
+}
+
+/* Pie */
+
+#pie svg {
+  float: left;
+  margin-left: -40px;
+}
+
+#pie text {
+  font-size: 10px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+#pie path {
+  cursor: pointer;
+}
+
+#pie path:hover {
+  opacity: 0.8;
+}
+
+#pie .country-info {
+  float: right;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #eeeeee;
+}
+
+/*Timeline*/
+
+.empty-timeline {
+  min-height: 390px;
+  margin-top: 30px;
+}
+
+.empty-timeline .jumbotron {
+  margin-top: 30px;
+}
