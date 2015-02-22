@@ -4,8 +4,9 @@ define([
   './panel',
   './logo',
   './pie',
-  './timeline'
-], function(React, Row, Panel, Logo, Pie, Timeline) {
+  './timeline',
+  './dial'
+], function(React, Row, Panel, Logo, Pie, Timeline, Dial) {
   return React.createClass({
     render: function() {
       return (
@@ -19,6 +20,11 @@ define([
             </Panel>
             <Panel title="Line Chart" text="Here is a zoomable timeline">
               <Timeline />
+            </Panel>
+          </Row>
+          <Row>
+            <Panel title="Speed dial" text="We use a pie chart to track the mouse speed">
+              <Dial />
             </Panel>
           </Row>
         </div>
