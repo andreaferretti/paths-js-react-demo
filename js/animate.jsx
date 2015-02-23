@@ -150,7 +150,7 @@ define(['react'], function(React) {
   return {
     easing: easingTypes,
     Mixin: {
-      tweenState: function(target, options) {
+      animateState: function(target, options) {
         options = options || {};
         var start = Date.now();
         var initialState = copy(this.state);

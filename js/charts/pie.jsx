@@ -1,15 +1,15 @@
 define([
   'react',
-  'tween',
+  'animate',
   'palette/colors',
   'paths/pie',
-], function(React, Tween, Colors, Pie) {
+], function(React, Animate, Colors, Pie) {
 
   function cyclic(coll, i) { return coll[i % coll.length]; }
   function identity(x) { return x }
 
   return React.createClass({
-    mixins: [Tween.Mixin],
+    mixins: [Animate.Mixin],
 
     getInitialState: function() {
       return { expanded: [0, 0, 0, 0, 0] };
@@ -34,7 +34,7 @@ define([
       return function() {
         var target = [0, 0, 0, 0, 0];
         target[i] = 1;
-        self.tweenState({ expanded: target });
+        self.animateState({ expanded: target });
       };
     },
 

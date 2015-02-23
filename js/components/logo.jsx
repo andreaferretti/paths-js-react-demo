@@ -1,8 +1,8 @@
 define([
   'react',
-  'tween',
+  'animate',
   'paths/bezier',
-], function(React, Tween, Bezier) {
+], function(React, Animate, Bezier) {
   var points = [
     [0, 50],
     [50, 70],
@@ -20,18 +20,18 @@ define([
   }
 
   return React.createClass({
-    mixins: [Tween.Mixin],
+    mixins: [Animate.Mixin],
     getInitialState: function() {
       return { points: points };
     },
     goBack: function() {
-      this.tweenState(
+      this.animateState(
         { points: points },
-        { easing: Tween.easing.easeOutElastic }
+        { easing: Animate.easing.easeOutElastic }
       );
     },
     shuffle: function() {
-      this.tweenState(
+      this.animateState(
         { points: move(points) },
         { done: this.goBack }
       );
