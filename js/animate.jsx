@@ -1,8 +1,8 @@
 define(['react'], function(React) {
-  function interpolate(a, b, t, d, f) {
+  function interpolate(a, b, t, f) {
     if (Array.isArray(b)) {
       return b.map(function(x, i) {
-        return interpolate(a[i], x, t, d, f);
+        return interpolate(a[i], x, t, f);
       });
     }
     if (typeof b === 'object') {
@@ -10,12 +10,12 @@ define(['react'], function(React) {
       for (var k in b) {
         // No need to check hasOwnProperty,
         // we are working with object literals
-        res[k] = interpolate(a[k], b[k], t, d, f);
+        res[k] = interpolate(a[k], b[k], t, f);
       }
       return res;
     }
     if (typeof b === 'number') {
-      return f(t, a, b, d);
+      return a + (b - a) * f(t);
     }
     return a;
   }
@@ -30,87 +30,72 @@ define(['react'], function(React) {
     return res;
   }
 
-  var easingTypes = {
-    // t: current time, b: beginning value, f: final value, d: duration
+  var s = 1.70158;
 
-    linear: function(t, b, f, d) {
-      var c = f - b;
-      return t*c/d + b;
+  var easingTypes = {
+    linear: function(t) {
+      return t;
     },
-    easeInQuad: function (t, b, f, d) {
-      var c = f - b;
-      return c*(t/=d)*t + b;
+    easeInQuad: function (t) {
+      return t * t;
     },
-    easeOutQuad: function (t, b, f, d) {
-      var c = f - b;
-      return -c *(t/=d)*(t-2) + b;
+    easeOutQuad: function (t) {
+      return -t * (t - 2);
     },
-    easeInOutQuad: function (t, b, f, d) {
-      var c = f - b;
-      if ((t/=d/2) < 1) return c/2*t*t + b;
-      return -c/2 * ((--t)*(t-2) - 1) + b;
+    easeInOutQuad: function (t) {
+      return (t < 1/2) ? (2 * t * t) : (-2 * t * t + 4 * t - 1);
     },
-    easeInElastic: function (t, b, f, d) {
-      var c = f - b;
-      var s=1.70158;var p=0;var a=c;
-      if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-      if (a < Math.abs(c)) { a=c; var s=p/4; }
-      else var s = p/(2*Math.PI) * Math.asin (c/a || 1);
-      return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+    easeInElastic: function (t) {
+      var q = t - 1;
+      return -Math.pow(2, 10 * q) * Math.sin((2 * q / 0.3 - 0.5) * Math.PI);
     },
-    easeOutElastic: function (t, b, f, d) {
-      var c = f - b;
-      var s=1.70158;var p=0;var a=c;
-      if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-      if (a < Math.abs(c)) { a=c; var s=p/4; }
-      else var s = p/(2*Math.PI) * Math.asin (c/a || 1);
-      return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+    easeOutElastic: function (t) {
+      return Math.pow(2, -10 * t) * Math.sin( (2 * t / 0.3 - 0.5)* Math.PI) + 1;
     },
-    easeInOutElastic: function (t, b, f, d) {
-      var c = f - b;
-      var s=1.70158;var p=0;var a=c;
-      if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
-      if (a < Math.abs(c)) { a=c; var s=p/4; }
-      else var s = p/(2*Math.PI) * Math.asin (c/a || 1);
-      if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-      return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+    easeInOutElastic: function (t) {
+      var q = 2 * t - 1;
+      if (t < 1/2) return -0.5 * Math.pow(2, 10 * q) * Math.sin((q / 0.225 - 0.5) * Math.PI);
+      else return Math.pow(2,-10 * q) * Math.sin((q / 0.225 - 0.5) * Math.PI) * 0.5 + 1;
     },
-    easeInBack: function (t, b, f, d, s) {
-      var c = f - b;
-      if (s == undefined) s = 1.70158;
-      return c*(t/=d)*t*((s+1)*t - s) + b;
+    easeInBack: function (t) {
+      return t * t * ((s + 1) * t - s);
     },
-    easeOutBack: function (t, b, f, d, s) {
-      var c = f - b;
-      if (s == undefined) s = 1.70158;
-      return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+    easeOutBack: function (t) {
+      var q = t - 1;
+      return q * q * ((s + 1) * q + s) + 1;
     },
-    easeInOutBack: function (t, b, f, d, s) {
-      var c = f - b;
-      if (s == undefined) s = 1.70158;
-      if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
-      return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+    easeInOutBack: function (t) {
+      var r = s * 1.525;
+      if (t < 1 / 2) return 2 * t * t * ((r + 1) * 2 * t - r)
+      else {
+        var q = t - 1;
+        return 2 * q * q * ((r + 1) * 2 * q + r) + 1;
+      }
     },
-    easeInBounce: function (t, b, f, d) {
-      var c = f - b;
-      return c - easingTypes.easeOutBounce (d-t, 0, c, d) + b;
+    easeInBounce: function (t) {
+      return 1 - easingTypes.easeOutBounce(1 - t);
     },
-    easeOutBounce: function (t, b, f, d) {
-      var c = f - b;
-      if ((t/=d) < (1/2.75)) {
-        return c*(7.5625*t*t) + b;
-      } else if (t < (2/2.75)) {
-        return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-      } else if (t < (2.5/2.75)) {
-        return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-      } else {
-        return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+    easeOutBounce: function (t) {
+      var q = 2.75 * t;
+      var l = 7.5625;
+      if (q < 1) { return l * t * t }
+      else if (q < 2) {
+        var p = t - 1.5 / 2.75;
+        return l * p * p + 0.75;
+      }
+      else if (q < 2.5) {
+        var p = t - 2.25 / 2.75;
+        return l * p * p + 0.9375;
+      }
+      else {
+        var p = t - 2.625 / 2.75;
+        return l * p * p + 0.984375;
       }
     },
     easeInOutBounce: function (t, b, f, d) {
-      var c = f - b;
-      if (t < d/2) return easingTypes.easeInBounce (t*2, 0, c, d) * .5 + b;
-      return easingTypes.easeOutBounce (t*2-d, 0, c, d) * .5 + c*.5 + b;
+      return (t < 1/2) ?
+        easingTypes.easeInBounce(2 * t) / 2 :
+        (easingTypes.easeOutBounce(2 * t - 1) + 1) / 2;
     }
   };
 
@@ -159,10 +144,10 @@ define(['react'], function(React) {
         var self = this;
 
         function updateState() {
-          var t = Math.min(Date.now() - start, duration);
-          self.setState(interpolate(initialState, target, t, duration, easing));
+          var t = Math.min(Date.now() - start, duration) / duration;
+          self.setState(interpolate(initialState, target, t, easing));
 
-          if (t < duration) {
+          if (t < 1) {
             requestAnimationFrame(updateState);
           }
           else {
