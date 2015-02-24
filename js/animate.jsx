@@ -92,7 +92,7 @@ define(['react'], function(React) {
         return l * p * p + 0.984375;
       }
     },
-    easeInOutBounce: function (t, b, f, d) {
+    easeInOutBounce: function (t) {
       return (t < 1/2) ?
         easingTypes.easeInBounce(2 * t) / 2 :
         (easingTypes.easeOutBounce(2 * t - 1) + 1) / 2;
