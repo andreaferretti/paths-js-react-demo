@@ -1,8 +1,8 @@
 define(['react'], function(React) {
-  function interpolate(a, b, t, f) {
+  function interpolate(a, b, t) {
     if (Array.isArray(b)) {
       return b.map(function(x, i) {
-        return interpolate(a[i], x, t, f);
+        return interpolate(a[i], x, t);
       });
     }
     if (typeof b === 'object') {
@@ -10,12 +10,12 @@ define(['react'], function(React) {
       for (var k in b) {
         // No need to check hasOwnProperty,
         // we are working with object literals
-        res[k] = interpolate(a[k], b[k], t, f);
+        res[k] = interpolate(a[k], b[k], t);
       }
       return res;
     }
     if (typeof b === 'number') {
-      return a + (b - a) * f(t);
+      return a + (b - a) * t;
     }
     return a;
   }
@@ -145,7 +145,7 @@ define(['react'], function(React) {
 
         function updateState() {
           var t = Math.min(Date.now() - start, duration) / duration;
-          self.setState(interpolate(initialState, target, t, easing));
+          self.setState(interpolate(initialState, target, easing(t)));
 
           if (t < 1) {
             requestAnimationFrame(updateState);
