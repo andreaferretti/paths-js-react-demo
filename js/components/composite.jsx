@@ -5,8 +5,9 @@ define([
   './logo',
   './pie',
   './timeline',
-  './dial'
-], function(React, Row, Panel, Logo, Pie, Timeline, Dial) {
+  './dial',
+  './drawing'
+], function(React, Row, Panel, Logo, Pie, Timeline, Dial, Drawing) {
   return React.createClass({
     render: function() {
       return (
@@ -25,6 +26,9 @@ define([
           <Row>
             <Panel title="Speed dial" text="We use a pie chart to track the mouse speed">
               <Dial />
+            </Panel>
+            <Panel title="Path animation" text="Integrate with Vivus to animate paths">
+              <Drawing />
             </Panel>
           </Row>
         </div>
