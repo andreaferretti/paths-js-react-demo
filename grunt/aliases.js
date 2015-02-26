@@ -9,9 +9,9 @@ module.exports = {
     'clean',
     'copy:server',
     'react:compile',
+    'copy:resources',
     'requirejs:compile',
     'copy:css',
-    'copy:fonts',
     'clean:tmp'
   ],
   "default": ['build']

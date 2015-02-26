@@ -32,11 +32,16 @@ module.exports = {
       }
     ]
   },
-  fonts: {
+  resources: {
     files: [
       {
         expand: true,
         src: ['<%= fonts %>/{,**/}*.*'],
+        dest: '<%= dist %>'
+      },
+      {
+        expand: true,
+        src: ['<%= jsondata %>/{,**/}*.*'],
         dest: '<%= dist %>'
       }
     ]

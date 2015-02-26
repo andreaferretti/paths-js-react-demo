@@ -5,6 +5,7 @@ module.exports = function(grunt) {
       src: 'js',
       css: 'css',
       fonts: 'fonts',
+      jsondata: 'data',
       dist: 'dist',
       tmp: '.tmp',
       port: 9000,
