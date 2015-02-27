@@ -10,6 +10,7 @@ requirejs.config({
     'lodash':              '../../bower_components/lodash/lodash',
     'paths':               '../../bower_components/paths-js/dist/amd',
     'vivus':               '../../bower_components/vivus/dist/vivus',
+    'hljs':                '../../highlight/highlight.pack',
     'data':                '../data'
   },
   shim: {

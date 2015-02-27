@@ -29,6 +29,11 @@ module.exports = {
         expand: false,
         src: ['<%= bower %>/bootstrap/dist/css/bootstrap.min.css'],
         dest: '<%= dist %>/css/bootstrap.min.css'
+      },
+      {
+        expand: false,
+        src: ['highlight/css/atelier-seaside.light.css'],
+        dest: '<%= dist %>/css/atelier-seaside.light.css'
       }
     ]
   },

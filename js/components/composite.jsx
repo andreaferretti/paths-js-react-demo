@@ -16,18 +16,18 @@ define([
             <Logo />
           </Row>
           <Row>
-            <Panel title="Pie Chart" text="Here is a pie chart example. Sectors are clickable">
+            <Panel title="Pie Chart" text="Here is a pie chart example. Sectors are clickable" sources={ ['components/pie', 'charts/pie'] }>
               <Pie />
             </Panel>
-            <Panel title="Line Chart" text="Here is a zoomable timeline">
+            <Panel title="Line Chart" text="Here is a zoomable timeline" sources={ ['components/timeline', 'charts/timeline'] }>
               <Timeline />
             </Panel>
           </Row>
           <Row>
-            <Panel title="Speed dial" text="We use a pie chart to track the mouse speed">
+            <Panel title="Speed dial" text="We use a pie chart to track the mouse speed" sources={ ['components/dial'] }>
               <Dial />
             </Panel>
-            <Panel title="Path animation" text="Integrate with Vivus to animate paths">
+            <Panel title="Path animation" text="Integrate with Vivus to animate paths" sources={ ['components/drawing'] }>
               <Drawing />
             </Panel>
           </Row>
