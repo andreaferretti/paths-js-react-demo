@@ -27,7 +27,9 @@ define([
             <Panel title="Speed dial" text="We use a pie chart to track the mouse speed" sources={ ['components/dial'] }>
               <Dial />
             </Panel>
-            <Panel title="Path animation" text="Integrate with Vivus to animate paths" sources={ ['components/drawing'] }>
+            <Panel title="Path animation"
+              text={ <span>Integrate with <a href="http://maxwellito.github.io/vivus/" target="_blank">Vivus</a> to animate paths</span> }
+              sources={ ['components/drawing'] }>
               <Drawing />
             </Panel>
           </Row>
