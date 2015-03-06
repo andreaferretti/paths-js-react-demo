@@ -98,3 +98,9 @@
 .empty-timeline .jumbotron {
   margin-top: 30px;
 }
+
+/*Zoomable timeline*/
+
+#zoomable {
+  padding-left: 50px;
+}
