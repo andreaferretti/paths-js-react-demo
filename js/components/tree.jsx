@@ -4,21 +4,23 @@ define([
   'json!data/ducks.json'
 ], function(React, Tree, ducks) {
 
+  function children(x) {
+    if(x.collapsed) {
+      return []
+    }
+    else {
+      return x.children || []
+    }
+  }
+
   return React.createClass({
 
     render: function() {
-      function children(x) {
-        if(x.collapsed) {
-          return []
-        }
-        else {
-          return x.children
-        }
-      };
+      var that= this;
 
       var tree = Tree({
         data: ducks,
-        children: this.children,
+        children: children,
         width: 350,
         height: 300
       });
@@ -31,24 +33,32 @@ define([
         var position = "translate(" + n.point[0] +"," + n.point[1]  +")";
 
         function toggle() {
-          n.collapsed =  !n.collapsed;
-          this.forceUpdate;
+          n.item.collapsed =  !n.item.collapsed;
+          that.forceUpdate();
         };
+
+        if(children(n.item).length > 0) {
+          var text = <text transform="translate(-10,0)" textAnchor="end">{ n.item.name }</text>;
+        } else {
+          var text = <text transform="translate(10,0)" textAnchor="start">{ n.item.name }</text>;
+        }
 
         return (
           <g transform={ position }>
             <circle fill="white" stroke="black" r="5" cx="0" cy="0" onClick={ toggle }/>
-            <text transform="translate(10,0)">{n.item.name}</text>
+            { text }
           </g>
         )
       })
 
-      return <svg width="500" height="380">
-        <g>
-          { curves }
-          { nodes }
-        </g>
-      </svg>
+      return <div id="tree">
+        <svg width="500" height="380">
+          <g transform="translate(80, 10)">
+            { curves }
+            { nodes }
+          </g>
+        </svg>
+      </div>
     }
   });
 });
