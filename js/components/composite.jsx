@@ -7,8 +7,9 @@ define([
   './timeline',
   './timeline2',
   './dial',
-  './drawing'
-], function(React, Row, Panel, Logo, Pie, Timeline, Timeline2, Dial, Drawing) {
+  './drawing',
+  './tree'
+], function(React, Row, Panel, Logo, Pie, Timeline, Timeline2, Dial, Drawing, Tree) {
   return React.createClass({
     render: function() {
       return (
@@ -38,6 +39,9 @@ define([
           <Row>
             <Panel title="Speed dial" text="We use a pie chart to track the mouse speed" sources={ ['components/dial'] }>
               <Dial />
+            </Panel>
+            <Panel title="Tree" text="Here is a Tree Graph" sources={ ['components/tree'] }>
+              <Tree />
             </Panel>
           </Row>
         </div>
