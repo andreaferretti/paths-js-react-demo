@@ -10,11 +10,11 @@ define([
   './drawing',
   './tree',
   'json!data/nestedArray.json',
-  './bar'
-], function(React, Row, Panel, Logo, Pie, Timeline, Timeline2, Dial, Drawing, Tree, barData, Bar) {
+  './bar',
+  './stack'
+], function(React, Row, Panel, Logo, Pie, Timeline, Timeline2, Dial, Drawing, Tree, barData, Bar, Stack) {
   return React.createClass({
     render: function() {
-      console.log(barData);
       return (
         <div className="container">
           <Row>
@@ -47,7 +47,10 @@ define([
               <Tree />
             </Panel>
             <Panel title="Bar" text="Here is a Bar Chart" sources={ ['components/bar'] }>
-              <Bar data={barData}/>
+              <Bar data={[[1,2],[3,4]]}/>
+            </Panel>
+            <Panel title="Stack" text="Here is a Stack Chart" sources={ ['components/stack'] }>
+              <Stack data={[[2, 4],[3, 4, 5], [8]]} />
             </Panel>
           </Row>
         </div>

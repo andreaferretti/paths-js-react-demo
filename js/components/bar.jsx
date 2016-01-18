@@ -23,6 +23,10 @@ define([
         this.animateState({data: this.scaledByIndex(index, 0.1)});
       },
 
+      handleMouseLeave: function(){
+        this.animateState({data: this.props.data});
+      },
+
       getInitialState: function(){
         return {data: this.props.data};
       },
@@ -32,7 +36,7 @@ define([
           width: 420,
           height: 350,
           gutter: 10,
-          palette: ["LightCoral", "LemonChiffon", "LightSalmon",
+          palette: ["LightCoral", "NavajoWhite", "LemonChiffon",
                     "PaleGreen", "CornflowerBlue", "Thistle", "Lavender"]
         };
       },
@@ -56,7 +60,8 @@ define([
 
         var curves = bar.curves.map(function(curve){
           return <path d={curve.line.path.print()} fill={curve.color}
-          onMouseOver={function(event){self.handleMouseOver(curve.index);}}/>;
+          onMouseOver={function(event){self.handleMouseOver(curve.index);}}
+          onMouseLeave={self.handleMouseLeave}/>;
         });
 
         return (
