@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.panel {
+  height: 600px;
+}
+
 .panel-title {
   display: inline;
 }
