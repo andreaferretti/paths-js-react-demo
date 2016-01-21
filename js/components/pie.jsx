@@ -1,31 +1,29 @@
-define([
-  'react',
-  'palette/colors',
-  'charts/pie',
-], function(React, Colors, Pie) {
-  var countries = [
-    { name: 'Italy', population: 59859996 },
-    { name: 'Mexico', population: 118395054 },
-    { name: 'France', population: 65806000 },
-    { name: 'Argentina', population: 40117096 },
-    { name: 'Japan', population: 127290000 }
-  ];
+var React = require('React');
+var Colors = require('palette/colors');
+var Pie = require('charts/pie');
 
-  var palette = Colors.mix({
-    r: 130,
-    g: 140,
-    b: 210
-  }, {
-    r: 180,
-    g: 205,
-    b: 150
-  });
+var countries = [
+  { name: 'Italy', population: 59859996 },
+  { name: 'Mexico', population: 118395054 },
+  { name: 'France', population: 65806000 },
+  { name: 'Argentina', population: 40117096 },
+  { name: 'Japan', population: 127290000 }
+];
 
-  function population(c) { return c.population; }
+var palette = Colors.mix({
+  r: 130,
+  g: 140,
+  b: 210
+}, {
+  r: 180,
+  g: 205,
+  b: 150
+});
 
-  return React.createClass({
-    render: function() {
-      return <Pie data={ countries } palette={ palette } r={ 60 } R={ 140 } accessor={ population } />
-    }
-  });
+function population(c) { return c.population; }
+
+module.exports = React.createClass({
+  render: function() {
+    return <Pie data={ countries } palette={ palette } r={ 60 } R={ 140 } accessor={ population } />
+  }
 });
