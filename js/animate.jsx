@@ -1,4 +1,4 @@
-var react = require('React');
+var React = require('react');
 
 function interpolate(a, b, t) {
   if (Array.isArray(b)) {

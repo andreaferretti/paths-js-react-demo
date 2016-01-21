@@ -1,4 +1,4 @@
-var React = require('React');
+var React = require('react');
 var Colors = require('palette/colors');
 var Pie = require('charts/pie');
 

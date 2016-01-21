@@ -1,8 +1,8 @@
-var React = require('React');
-var Col = require('react-bootstrap/Col');
-var Modal = require('react-bootstrap/Modal');
-var hljs = require('hljs');
-var github = require('github');
+var React = require('react');
+var Col = require('react-bootstrap/lib/Col');
+var Modal = require('react-bootstrap/lib/Modal');
+// var hljs = require('hljs');
+var github = require('../github.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {

@@ -18,7 +18,7 @@
 //   }
 // });
 
-var React = require('React');
-var Composite = require('components/composite');
+var React = require('react');
+var Composite = require('./components/composite.jsx');
 
-React.render(<Composite />, document.body);
+React.render(<Composite />, document.getElementById('content'));

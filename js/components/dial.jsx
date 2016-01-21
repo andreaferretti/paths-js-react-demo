@@ -1,4 +1,4 @@
-var React = require('React');
+var React = require('react');
 var Pie = require('paths-js/pie');
 
 window.mousex = 0;

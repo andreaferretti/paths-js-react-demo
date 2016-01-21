@@ -1,14 +1,14 @@
 var React = require('react');
-var Row = require('react-bootstrap/Row');
-var Panel = require('./panel');
-var Logo = require('./logo');
+var Row = require('react-bootstrap/lib/Row');
+var Panel = require('./panel.jsx');
+var Logo = require('./logo.jsx');
 // var Pie = require('./pie');
 // var Timeline = require('./timeline');
 // var Timeline2 = require('./timeline2');
-var Dial = require('./dial');
+var Dial = require('./dial.jsx');
 // var Drawing = require('./drawing');
 // var Tree = require('./tree');
-var Bar = require('./bar');
+var Bar = require('./bar.jsx');
 // var Stack = require('./stack');
 
 module.exports = React.createClass({
