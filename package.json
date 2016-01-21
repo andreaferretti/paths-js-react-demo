@@ -17,14 +17,14 @@
     "styles": "cp -r css dist && cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && cp highlight/css/atelier-seaside.light.css dist/css",
     "server": "browser-sync start --server dist --reload-delay 1000",
     "build": "npm run clean && npm run html && npm run styles && npm run browserify",
-    "watch": "npm run build && parallelshell \"npm run watchify\" \"npm run server\"",
+    "watch": "npm run build && npm run watchify && npm run server",
     "watchify": "watchify js/main.jsx -t reactify --poll 100 -d -o dist/main.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
     "lodash": "^3.10.1",
     "pajamas": "^1.6.0",
-    "paths-js": "^0.3.5",
+    "paths-js": "^0.4.1",
     "react": "^0.14.6",
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.6",
