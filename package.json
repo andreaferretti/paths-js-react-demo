@@ -15,21 +15,21 @@
     "browserify": "browserify js/main.jsx -t reactify -d -p [minifyify --map main.js.map --output dist/main.js.map] -o dist/main.js",
     "html": "cp index.html dist",
     "fonts": "cp -r fonts dist",
-    "styles": "cp -r css dist && cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && cp highlight/css/atelier-seaside.light.css dist/css",
+    "styles": "cp -r css dist && cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && cp node_modules/highlight.js/styles/atelier-seaside-light.css dist/css",
     "server": "browser-sync start --files \"dist/main.css,dist/main.js\" --server dist --reload-delay 500",
     "build": "npm run clean && npm run html && npm run fonts && npm run styles && npm run browserify",
     "watch": "npm run build && parallelshell \"npm run watchify\" \"npm run server\"",
-    "watchify": "watchify js/main.jsx -t reactify -o dist/main.js"
+    "watchify": "watchify js/main.jsx -t reactify -d -p [minifyify --map main.js.map --output dist/main.js.map] -o dist/main.js"
   },
   "dependencies": {
+    "bluebird": "^3.1.1",
     "bootstrap": "^3.3.6",
+    "fetchify": "0.0.2",
     "highlight.js": "^9.1.0",
     "lodash": "^3.10.1",
-    "pajamas": "^1.6.0",
     "paths-js": "^0.4.1",
-    "react": "^0.14.6",
-    "react-bootstrap": "^0.28.2",
-    "react-dom": "^0.14.6",
+    "react": "^0.12.2",
+    "react-bootstrap": "^0.14.0",
     "vivus": "^0.2.3"
   },
   "devDependencies": {

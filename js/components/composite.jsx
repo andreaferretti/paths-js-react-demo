@@ -1,5 +1,5 @@
 var React = require('react');
-var Row = require('react-bootstrap/lib/Row');
+var Row = require('react-bootstrap/Row');
 var Panel = require('./panel.jsx');
 var Logo = require('./logo.jsx');
 var Pie = require('./pie.jsx');

@@ -6,18 +6,17 @@ This is an application to demonstrate the use of [Paths.js](https://github.com/a
 Running
 -------
 
-The application uses RequireJS and Bower to manage the dependencies. To run it, first install the dependencies with
+The application uses NPM to manage the dependencies. To run it, first install the dependencies with
 
     npm install
-    bower install
 
 Then a running server can start with
 
-    grunt server
+    npm start
 
 Otherwise a self-contained distribution can be obtained with
 
-    grunt
+    npm run build
 
 Status
 ------

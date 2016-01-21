@@ -1,7 +1,7 @@
 var React = require('react');
-var Col = require('react-bootstrap/lib/Col');
-var Modal = require('react-bootstrap/lib/Modal');
-// var hljs = require('hljs');
+var Col = require('react-bootstrap/Col');
+var Modal = require('react-bootstrap/Modal');
+var hljs = require('highlight.js');
 var github = require('../github.jsx');
 
 module.exports = React.createClass({
@@ -16,7 +16,7 @@ module.exports = React.createClass({
     var self = this;
     return function() {
       github(s).then(function(content) {
-        var body = hljs.highlight('javascript', content).value
+        var body = hljs.highlight('javascript', content).value;
         self.setState({ modal: true, content: body, title: s });
       });
     }
@@ -41,7 +41,9 @@ module.exports = React.createClass({
 
     return (
       <Col md={6}>
+        <div id="pippo" />
         { modal }
+        <div id="pippo2" />
         <div className="panel panel-default">
           <div className="panel-heading">
             <h2 className="panel-title">{ this.props.title }</h2>
