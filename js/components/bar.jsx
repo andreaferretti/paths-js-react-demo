@@ -1,8 +1,9 @@
 define([
   'react',
   'animate',
-  'paths/bar'],
-  function(React, Animate, Bar){
+  'palette/colors',
+  'paths/bar'
+], function(React, Animate, Colors, Bar){
     return React.createClass({
 
       mixins: [Animate.Mixin],
@@ -36,8 +37,15 @@ define([
           width: 420,
           height: 350,
           gutter: 10,
-          palette: ["LightCoral", "NavajoWhite", "LemonChiffon",
-                    "PaleGreen", "CornflowerBlue", "Thistle", "Lavender"]
+          palette: Colors.mix({
+              r: 130,
+              g: 140,
+              b: 210
+            }, {
+              r: 180,
+              g: 205,
+              b: 150
+            })
         };
       },
 
@@ -51,8 +59,8 @@ define([
           height: this.props.height,
           accessor: this.props.accessor,
           compute: {
-            color: function(i){
-              return self.props.palette[i % self.props.palette.length];
+            color: function(i) {
+              return Colors.string(self.props.palette[i % self.props.palette.length]);
             }
           },
           gutter: this.props.gutter,
@@ -60,7 +68,7 @@ define([
 
         var curves = bar.curves.map(function(curve){
           return <path d={curve.line.path.print()} fill={curve.color}
-          onMouseOver={function(event){self.handleMouseOver(curve.index);}}
+          onMouseOver={function(event){self.handleMouseOver(curve.index)}}
           onMouseLeave={self.handleMouseLeave}/>;
         });
 
