@@ -19,10 +19,11 @@
     "server": "browser-sync start --files \"dist/main.css,dist/main.js\" --server dist --reload-delay 500",
     "build": "npm run clean && npm run html && npm run fonts && npm run styles && npm run browserify",
     "watch": "npm run build && parallelshell \"npm run watchify\" \"npm run server\"",
-    "watchify": "watchify js/main.jsx -t reactify --poll 100 -d -o dist/main.js"
+    "watchify": "watchify js/main.jsx -t reactify -o dist/main.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
+    "highlight.js": "^9.1.0",
     "lodash": "^3.10.1",
     "pajamas": "^1.6.0",
     "paths-js": "^0.4.1",
