@@ -28,7 +28,7 @@ define([
     modal: function() {
       return <Modal title={ this.state.title } onRequestHide={ this.hide }>
         <pre dangerouslySetInnerHTML={{__html: this.state.content}} />
-      </Modal>
+        </Modal>
     },
     render: function() {
       var modal = this.state.modal ? this.modal() : null;
