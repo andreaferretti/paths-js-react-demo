@@ -3,7 +3,7 @@ var Row = require('react-bootstrap/lib/Row');
 var Panel = require('./panel.jsx');
 var Logo = require('./logo.jsx');
 var Pie = require('./pie.jsx');
-// var Timeline = require('./timeline');
+var Timeline = require('./timeline.jsx');
 // var Timeline2 = require('./timeline2');
 var Dial = require('./dial.jsx');
 // var Drawing = require('./drawing');
@@ -27,6 +27,9 @@ module.exports = React.createClass({
           </Panel>
           <Panel title="Pie Chart" text="Here is a pie chart example. Sectors are clickable" sources={ ['components/pie', 'charts/pie'] }>
             <Pie />
+          </Panel>
+          <Panel title="Line Chart" text="Here is a zoomable timeline" sources={ ['components/timeline', 'charts/timeline'] }>
+            <Timeline />
           </Panel>
         </Row>
       </div>
