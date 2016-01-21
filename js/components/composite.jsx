@@ -2,7 +2,7 @@ var React = require('react');
 var Row = require('react-bootstrap/lib/Row');
 var Panel = require('./panel.jsx');
 var Logo = require('./logo.jsx');
-// var Pie = require('./pie');
+var Pie = require('./pie.jsx');
 // var Timeline = require('./timeline');
 // var Timeline2 = require('./timeline2');
 var Dial = require('./dial.jsx');
@@ -24,6 +24,9 @@ module.exports = React.createClass({
           </Panel>
           <Panel title="Bar" text="Point over the bars to animate" sources={ ['components/bar'] }>
             <Bar data={[[1, 2, 3, 4], [3, 4, 5, 6], [4, 2, 3, 2]]}/>
+          </Panel>
+          <Panel title="Pie Chart" text="Here is a pie chart example. Sectors are clickable" sources={ ['components/pie', 'charts/pie'] }>
+            <Pie />
           </Panel>
         </Row>
       </div>
