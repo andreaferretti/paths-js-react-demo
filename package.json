@@ -12,13 +12,13 @@
   "scripts": {
     "start": "npm run watch",
     "clean": "mkdir -p dist && rimraf dist/*",
-    "browserify": "NODE_ENV=production browserify js/main.jsx -t reactify -d -p [minifyify --map main.js.map --output dist/main.js.map] > dist/main.js",
+    "browserify": "browserify js/main.jsx -t reactify -d -p [minifyify --map main.js.map --output dist/main.js.map] -o dist/main.js",
     "html": "cp index.html dist",
     "styles": "cp -r css dist && cp node_modules/bootstrap/dist/css/bootstrap.min.css dist/css && cp highlight/css/atelier-seaside.light.css dist/css",
     "server": "browser-sync start --server dist --reload-delay 1000",
     "build": "npm run clean && npm run html && npm run styles && npm run browserify",
     "watch": "npm run build && parallelshell \"npm run watchify\" \"npm run server\"",
-    "watchify": "watchify -t reactify js/main.jsx -o dist/main.js"
+    "watchify": "watchify js/main.jsx -t reactify --poll 100 -d -o dist/main.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.6",

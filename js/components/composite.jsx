@@ -4,7 +4,7 @@ var Panel = require('./panel.jsx');
 var Logo = require('./logo.jsx');
 var Pie = require('./pie.jsx');
 var Timeline = require('./timeline.jsx');
-// var Timeline2 = require('./timeline2');
+var Timeline2 = require('./timeline2.jsx');
 var Dial = require('./dial.jsx');
 // var Drawing = require('./drawing');
 // var Tree = require('./tree');
@@ -30,6 +30,10 @@ module.exports = React.createClass({
           </Panel>
           <Panel title="Line Chart" text="Here is a zoomable timeline" sources={ ['components/timeline', 'charts/timeline'] }>
             <Timeline />
+          </Panel>
+          <Panel title="Zoomable timeline" text="Use the minimap to zoom the timeline"
+            sources={ ['components/timeline2', 'charts/zoomable', 'charts/zoomedmap', 'charts/minimap'] }>
+            <Timeline2 />
           </Panel>
         </Row>
       </div>
