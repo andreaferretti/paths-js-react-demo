@@ -46,10 +46,10 @@ define([
             <Panel title="Tree" text="Here is a Tree Graph" sources={ ['components/tree'] }>
               <Tree />
             </Panel>
-            <Panel title="Bar" text="Here is a Bar Chart" sources={ ['components/bar'] }>
+            <Panel title="Bar" text="Point over the bars to animate" sources={ ['components/bar'] }>
               <Bar data={[[1, 2, 3, 4], [3, 4, 5, 6], [4, 2, 3, 2]]}/>
             </Panel>
-            <Panel title="Stack" text="Here is a Stack Chart" sources={ ['components/stack'] }>
+            <Panel title="Stack" text="Point over the bars to animate" sources={ ['components/stack'] }>
               <Stack data={[[1, 2, 3, 4], [3, 4, 5, 6], [4, 2, 3, 2]]} />
             </Panel>
           </Row>
