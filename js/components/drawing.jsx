@@ -44,6 +44,7 @@ module.exports = React.createClass({
     this.setState({ showAreas: true });
   },
   render: function() {
+    var names = ["AAPL", "AMZN", "IBM"];
     var palette = ["#3E90F0", "#7881C2", "#707B82"];
     var chart = SmoothLine({
       data: [stock.AAPL, stock.AMZN, stock.IBM],
@@ -60,10 +61,20 @@ module.exports = React.createClass({
       var transparent = { opacity: 0.5 };
       return <path d={ c.area.path.print() } style={ transparent } stroke="none" fill={ palette[i] } />
     });
+    var legends = chart.curves.map(function(c, i) {
+      var translate = "translate(0," + (30 * i) + ")";
+      return <g transform={translate}>
+          <rect width={20} height={20} style={{fill: palette[i]}} />
+          <text transform="translate(30, 15)" fontSize={12}>{ names[i] }</text>
+        </g>;
+    });
     return <svg ref="vivus" width="500" height="400">
       <g transform="translate(30, 0)">
         { this.state.showAreas ? areas : null }
         { lines }
+      </g>
+      <g transform="translate(60, 70)">
+        { this.state.showAreas ? legends : null }
       </g>
     </svg>
   }

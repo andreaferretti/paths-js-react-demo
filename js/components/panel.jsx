@@ -41,9 +41,7 @@ module.exports = React.createClass({
 
     return (
       <Col md={6}>
-        <div id="pippo" />
         { modal }
-        <div id="pippo2" />
         <div className="panel panel-default">
           <div className="panel-heading">
             <h2 className="panel-title">{ this.props.title }</h2>
