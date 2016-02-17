@@ -11,10 +11,15 @@ define([
   './tree',
   'json!data/nestedArray.json',
   './bar',
-  './stack'
-], function(React, Row, Panel, Logo, Pie, Timeline, Timeline2, Dial, Drawing, Tree, barData, Bar, Stack) {
+  './stack',
+  './voronoi'
+], function(React, Row, Panel, Logo, Pie, Timeline, Timeline2, Dial, Drawing, Tree, barData, Bar, Stack, Voronoi) {
   return React.createClass({
     render: function() {
+      var random = [];
+      for (var i=0; i<70; i++) {
+        random.push([2*(Math.random() - 0.5), 2*(Math.random() - 0.5)]);
+      };
       return (
         <div className="container">
           <Row>
@@ -46,11 +51,18 @@ define([
             <Panel title="Tree" text="Here is a Tree Graph" sources={ ['components/tree'] }>
               <Tree />
             </Panel>
+          </Row>
+          <Row>
             <Panel title="Bar" text="Here is a Bar Chart" sources={ ['components/bar'] }>
               <Bar data={[[1,2],[3,4]]}/>
             </Panel>
             <Panel title="Stack" text="Here is a Stack Chart" sources={ ['components/stack'] }>
               <Stack data={[[2, 4],[3, 4, 5], [8]]} />
+            </Panel>
+          </Row>
+          <Row>
+            <Panel title="Voronoi" text="Here is a Voronoi Chart" sources={ ['components/voronoi'] }>
+              <Voronoi data={random}  />
             </Panel>
           </Row>
         </div>
