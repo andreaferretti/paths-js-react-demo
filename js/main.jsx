@@ -9,6 +9,7 @@ requirejs.config({
     'pajamas':             '../../bower_components/pajamas/dist/pajamas',
     'lodash':              '../../bower_components/lodash/lodash',
     'paths':               '../../bower_components/paths-js/dist/amd',
+    'fortune':             './fortune',
     'vivus':               '../../bower_components/vivus/dist/vivus',
     'hljs':                '../../highlight/highlight.pack',
     'data':                '../data'

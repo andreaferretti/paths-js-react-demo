@@ -1,3 +1,5 @@
+"use strict";
+
 define([
   'react',
   '../charts/voronoi'],
@@ -12,14 +14,31 @@ define([
         return i===this.state.iOver ? "blue" : "red";
       },
 
+      scale: function(iIn, iOut) {
+        return function(x){
+          return iOut[0] + (iOut[1] - iOut[0]) * (x - iIn[0]) / (iIn[1] - iIn[0]);
+        }
+      },
+
+      addPoint: function(e){
+        var ixscale=this.scale([0, this.props.width], this.props.xrange);
+        var iyscale=this.scale([this.props.height, 0], this.props.yrange);
+        var br=document.querySelector("#voronoi-svg").getBoundingClientRect();
+        var newPoint=[ixscale(e.clientX-br.x), iyscale(e.clientY-br.y)];
+        this.props.data[0]=newPoint;
+        this.setState({iOver: 0});
+      },
+
       getInitialState: function(){
-        return {iOver: null};
+        return {iOver: 0};
       },
 
       getDefaultProps: function(){
         return {
           width: 500,
           height: 380,
+          xrange: [-1,1],
+          yrange: [-1,1],
           palette: ["LightCoral", "NavajoWhite", "LemonChiffon", "PaleGreen",
                   "CornflowerBlue", "Thistle", "Lavender", "#FFB347", "#A05FAB",
                   "#E7D6B6", "#DE9AA4", "#AFCFAA", "#B3AF9C", "#C1C5C0","#1b85b8",
@@ -40,19 +59,19 @@ define([
           yrange: this.props.yrange,
           compute: {
             patchColor: function(i){
-              return self.cyclic(self.props.palette, i);
+              return i==self.state.iOver ? "red" : self.cyclic(self.props.palette, i)
             },
-            //patchAlpha: function(i){
-            //  return i===self.state.iOver ? 1 : 0.3;
-            //},
+            //patchAlpha: function(i){     CALLBACK 2
+            //  return i===self.state.iOver ? 1 : 0.3;  CALLBACK 2
+            //},   CALLBACK 2
           }
         });
 
         var curves = voronoi.curves.map(function(curve){
-          return <path d={curve.line.path.print()} stroke="black" strokeWidth="0.2"
-                   fill={curve.patchColor} fillOpacity="0.3" //{curve.patchAlpha}
-                  onMouseOver={function(event){
-                    self.setState({iOver: curve.index});}}/>
+          return <path fill={curve.patchColor} fillOpacity="0.3" //{curve.patchAlpha} CALLBACK 2
+                  //onMouseOver={function(event){               CALLBACK 1
+                  //  self.setState({iOver: curve.index});}}    CALLBACK 1
+                  d={curve.line.path.print()} stroke="black" strokeWidth="0.2"/>
         });
         var points = voronoi.nodes.map(function(node, i){
           return <circle cx={node.point[0]} cy={node.point[1]} r="3"
@@ -60,7 +79,7 @@ define([
         });
         return (
           <div id="voronoi">
-            <svg width="500" height="380">
+            <svg width="500" height="380" id="voronoi-svg" onMouseOver={this.addPoint}>
               <g transform="translate(0, 0)">
                 {curves}
                 {points}
