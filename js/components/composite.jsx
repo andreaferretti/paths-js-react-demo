@@ -61,7 +61,7 @@ define([
             </Panel>
           </Row>
           <Row>
-            <Panel title="Voronoi" text="Here is a Voronoi Chart" sources={ ['components/voronoi'] }>
+            <Panel title="Voronoi Diagram" text="Here is a Voronoi Diagram" sources={ ['components/voronoi'] }>
               <Voronoi data={random}  />
             </Panel>
           </Row>

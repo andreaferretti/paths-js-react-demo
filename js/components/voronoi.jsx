@@ -19,7 +19,7 @@ define([
       getDefaultProps: function(){
         return {
           width: 500,
-          heigth: 380,
+          height: 380,
           palette: ["LightCoral", "NavajoWhite", "LemonChiffon", "PaleGreen",
                   "CornflowerBlue", "Thistle", "Lavender", "#FFB347", "#A05FAB",
                   "#E7D6B6", "#DE9AA4", "#AFCFAA", "#B3AF9C", "#C1C5C0","#1b85b8",

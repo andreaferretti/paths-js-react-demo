@@ -9,8 +9,6 @@ define(['paths/polygon', 'fortune/fortune'],
           return x;
         }
       };
-      var width=args.width||500;
-      var height=args.height||380;
       var xrange=args.xrange||[-1,1];
       var yrange=args.yrange||[-1,1];
 
@@ -29,12 +27,11 @@ define(['paths/polygon', 'fortune/fortune'],
         }
       }
       var sites=args.data.map(args.accessor);
-
       var xm=(xrange[0]+xrange[1])/2;
       var ym=(yrange[0]+yrange[1])/2;
       var diag=Math.sqrt(Math.pow(xrange[0]-xrange[1], 2)+Math.pow(yrange[0]-yrange[1], 2));
-      var xscale=scale(xrange, [0, width]);
-      var yscale=scale(yrange, [height, 0]);
+      var xscale=scale(xrange, [0, args.width]);
+      var yscale=scale(yrange, [args.height, 0]);
 
       var closingPoints=[[1e5*(xrange[0]-diag), 1e5*ym],[1e5*(xrange[1]+diag), 1e5*ym],
               [1e5*xm,1e5*(yrange[0]-diag)],[1e5*xm,1e5*(yrange[1]+diag)]];
@@ -43,7 +40,6 @@ define(['paths/polygon', 'fortune/fortune'],
 
       var fortune=new Fortune(points);
       var patches=fortune.getPatches();
-      var edges=fortune.edges;
       var nodes=[];
       var curves=[];
 
