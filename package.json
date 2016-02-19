@@ -27,7 +27,7 @@
     "fetchify": "0.0.2",
     "highlight.js": "^9.1.0",
     "lodash": "^3.10.1",
-    "paths-js": "^0.4.1",
+    "paths-js": "^0.4.3",
     "react": "^0.12.2",
     "react-bootstrap": "^0.14.0",
     "vivus": "^0.2.3"
