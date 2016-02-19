@@ -58,7 +58,7 @@ define([
         accessor: function(x) { return x }
       });
 
-      return <svg width="375" height="400">
+      return <svg width="500" height="380">
         <linearGradient id="dial-grad">
           <stop stopColor="red" offset="0%"/>
           <stop stopColor="green" offset="100%"/>

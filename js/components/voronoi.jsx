@@ -2,7 +2,7 @@
 
 define([
   'react',
-  '../charts/voronoi'],
+  'paths/voronoi'],
   function(React, Voronoi){
     return React.createClass({
 
@@ -24,7 +24,7 @@ define([
         var ixscale=this.scale([0, this.props.width], this.props.xrange);
         var iyscale=this.scale([this.props.height, 0], this.props.yrange);
         var br=document.querySelector("#voronoi-svg").getBoundingClientRect();
-        var newPoint=[ixscale(e.clientX-br.x), iyscale(e.clientY-br.y)];
+        var newPoint=[ixscale(e.clientX-br.left), iyscale(e.clientY-br.top)];
         this.props.data[0]=newPoint;
         this.setState({iOver: 0});
       },

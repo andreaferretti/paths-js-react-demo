@@ -73,83 +73,8 @@ define(['paths/rectangle'],
             }));
           })
         )}, []),
-        scale: yscale
+        scale: yscale,
       };
     }
   }
 );
-
-/*cumulateArray: function(array) {
-  cumulated = [];
-  array.forEach(function(value, i){
-    if(i===0)
-      cumulated.push(value);
-    else
-      cumulated.push(cumulated[i-1] + value);
-    });
-    return cumulated;
-},
-
-cumulateMatrix: function(matrix){
-  return matrix.map(function(array){
-    return this.cumulateArray(array);
-  }, this);
-},
-
-sumArray: function(a1, a2){
-  return a1.map(function(value, i){
-    return value + a2[i];
-  });
-},
-
-cumulateData: function(matrix){
-  var cumulated = [matrix[0].map(function(value){
-    return 0;
-  })];
-  matrix.forEach(function(array, i){
-    cumulated.push(this.sumArray(array, cumulated[i]));
-  }, this);
-  return cumulated.slice(1);
-},
-
-function integrateArray(array){
-  return array.reduce(function(subtot, newVal){
-    return subtot + newVal;
-  });
-}
-
-function cumulateMatrix(matrix){
-  return matrix.map(function(array){
-    return cumulateArray(array);
-  });
-}
-
----------------
-var barN = cumData.length;
-
-var cumData = args.data.map(function(array){
-    return array.map(args.accessor);
-  }).map(cumulateArray);
-
-var intervalN = cumData.map(function(array){
-  return array.length;
-});
-
-var max = maxInVector(cumData);
-
------------------
-console.log("scale", Scale(5, 100)(2)); // --> 60
-
-console.log(maxInVector([
-              [
-                [0,3,6],[-4,6,0],[2,1]
-              ],[
-                [1],0,-5,[1,3,5]
-              ],[
-                10
-              ]])
-            );
-//--> 10
-
-console.log(cumulateArray([-1, 0, 5, -2, 7]));//-->[-1, -1, 4, 2, 9]
-*/
