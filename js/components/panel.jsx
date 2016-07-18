@@ -1,6 +1,6 @@
 var React = require('react');
-var Col = require('react-bootstrap/Col');
-var Modal = require('react-bootstrap/Modal');
+var Col = require('react-bootstrap/lib/Col');
+var Modal = require('react-bootstrap/lib/Modal');
 var hljs = require('highlight.js');
 var github = require('../github.jsx');
 
