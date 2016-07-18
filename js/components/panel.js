@@ -2,7 +2,7 @@ var React = require('react');
 var Col = require('react-bootstrap/lib/Col');
 var Modal = require('react-bootstrap/lib/Modal');
 var hljs = require('highlight.js');
-var github = require('../github.jsx');
+var github = require('../github.js');
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -25,10 +25,16 @@ module.exports = React.createClass({
     this.setState({ modal: false });
   },
   modal: function() {
-    return <Modal title={ this.state.title } onRequestHide={ this.hide }>
-      <pre dangerouslySetInnerHTML={{__html: this.state.content}} />
-      </Modal>
-  },
+    return (
+      <Modal.Dialog onHide={ this.hide }>
+        <Modal.Header closeButton>
+          <Modal.Title>{this.state.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <pre dangerouslySetInnerHTML={{__html: this.state.content}} />
+        </Modal.Body>
+      </Modal.Dialog>
+  )},
   render: function() {
     var modal = this.state.modal ? this.modal() : null;
     var single = this.props.sources.length <= 1;

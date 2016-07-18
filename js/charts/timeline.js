@@ -34,7 +34,7 @@ module.exports = React.createClass({
     return <rect x={ x } y={ y } width={ w } height={ h } stroke="none" fill="rgba(120, 129, 194, 0.6)" />
   },
   svgCoords: function() {
-    var el = this.refs.svg.getDOMNode();
+    var el = this.refs.svg;
     return coords(el);
   },
   svgMouseCoords: function(e, recomputeSvgCoords) {

@@ -1,6 +1,6 @@
 var React = require('react');
-var ZoomedMap = require('./zoomedmap.jsx');
-var MiniMap = require('./minimap.jsx');
+var ZoomedMap = require('./zoomedmap');
+var MiniMap = require('./minimap');
 
 module.exports = React.createClass({
   getInitialState: function() {

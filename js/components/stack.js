@@ -1,6 +1,6 @@
 var React = require('react');
-var Animate = require('../animate.jsx');
-var Colors = require('../palette/colors.jsx');
+var Animate = require('../animate.js');
+var Colors = require('../palette/colors.js');
 var Stack = require('paths-js/stack');
 
 module.exports = React.createClass({

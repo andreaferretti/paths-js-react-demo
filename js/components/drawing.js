@@ -33,7 +33,7 @@ module.exports = React.createClass({
     return { showAreas: false };
   },
   componentDidMount: function() {
-    new Vivus(this.refs.vivus.getDOMNode(), {
+    new Vivus(this.refs.vivus, {
       type: 'delayed',
       duration: 200,
       start: 'autostart',

@@ -1,6 +1,6 @@
 var React = require('react');
-var Colors = require('../palette/colors.jsx');
-var Pie = require('../charts/pie.jsx');
+var Colors = require('../palette/colors.js');
+var Pie = require('../charts/pie.js');
 
 var countries = [
   { name: 'Italy', population: 59859996 },

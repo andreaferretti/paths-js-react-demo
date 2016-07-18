@@ -1,6 +1,6 @@
 var React = require('react');
-var Animate = require('../animate.jsx');
-var Colors = require('../palette/colors.jsx');
+var Animate = require('../animate');
+var Colors = require('../palette/colors');
 var Pie = require('paths-js/pie');
 var _ = require('lodash');
 
