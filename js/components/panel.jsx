@@ -1,52 +1,55 @@
 var React = require('react');
 var Col = require('react-bootstrap/Col');
-var Modal = require('react-bootstrap/Modal');
 var hljs = require('highlight.js');
 var github = require('../github.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      modal: false,
-      content: '',
-      title: ''
+      sources: []
     };
   },
-  show: function(s) {
+  loadSource: function(s) {
     var self = this;
-    return function() {
-      github(s).then(function(content) {
-        var body = hljs.highlight('javascript', content).value;
-        self.setState({ modal: true, content: body, title: s });
+    github(s).then(function(content) {
+      var body = hljs.highlight('javascript', content).value;
+      var sources = self.state.sources;
+      sources.push({
+        body: body,
+        title: s
       });
-    }
+      self.setState({ sources: sources });
+    });
   },
-  hide: function() {
-    this.setState({ modal: false });
+  loadSources: function(sources) {
+    sources.forEach(this.loadSource);
   },
-  modal: function() {
-    return <Modal title={ this.state.title } onRequestHide={ this.hide }>
-      <pre dangerouslySetInnerHTML={{__html: this.state.content}} />
-      </Modal>
+  componentWillMount: function() {
+    this.loadSources(this.props.sources);
+  },
+  componentWillReceiveProps: function(props) {
+    this.loadSources(props.sources);
   },
   render: function() {
-    var modal = this.state.modal ? this.modal() : null;
-    var single = this.props.sources.length <= 1;
-    var self = this;
-    var links = this.props.sources.map(function (s, i) {
-      var text = single ? 'Source': 'Source ' + (i + 1);
+    var sources = this.state.sources.map(function (s) {
+      return(
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h2 className="panel-title">{ s.title }.jsx</h2>
+          </div>
 
-      return <a onClick={ self.show(s) }>{ text }</a>
+          <div className="panel-body">
+            <pre dangerouslySetInnerHTML={{__html: s.body }} />
+          </div>
+        </div>
+      );
     });
 
     return (
-      <Col md={6}>
-        { modal }
+      <Col md={12} className="chart-panel">
         <div className="panel panel-default">
           <div className="panel-heading">
             <h2 className="panel-title">{ this.props.title }</h2>
-
-            <span className="links">{ links }</span>
           </div>
 
           <div className="panel-body">
@@ -55,6 +58,7 @@ module.exports = React.createClass({
             { this.props.children }
           </div>
         </div>
+        { sources }
       </Col>
   )}
 });

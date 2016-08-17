@@ -2,29 +2,20 @@
   cursor: pointer;
 }
 
-.panel {
-  height: 600px;
+.center-wrap {
+  text-align: center;
 }
 
-.panel-title {
-  display: inline;
+.center {
+  display: inline-block;
 }
 
-.links {
-  float: right;
+.selector {
+  margin-bottom: 50px;
 }
 
-.links  a {
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.modal {
-  display: block;
-}
-
-.modal-dialog {
-  width: 800px;
+.chart-panel {
+  margin-top: 50px;
 }
 
 /*Logo*/
