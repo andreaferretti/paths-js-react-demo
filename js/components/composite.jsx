@@ -68,11 +68,11 @@ module.exports = React.createClass({
     var selectors = this.components.map(function(c, i) {
       var active = i == self.state.select;
       var bsStyle = active ? "primary" : "default";
-      return <Button
-        key={ i }
-        onClick={ self.select.bind(self, i) }
-        active={ active }
-        bsStyle={ bsStyle }>{ c.props.title }</Button>;
+      var src = "images/" + c.props.title + ".png";
+      return <div key={ i } onClick={ self.select.bind(self, i) } className="selector">
+        <img src={ src } alt={ c.props.title } height={ 70 } />
+        <p>{ c.props.title }</p>
+      </div>;
     });
 
     return (
@@ -82,7 +82,7 @@ module.exports = React.createClass({
         </Row>
         <Row>
           <div className="center-wrap">
-            <ButtonGroup className="center">{ selectors }</ButtonGroup>
+            <div className="center">{ selectors }</div>
           </div>
         </Row>
         <Row>
