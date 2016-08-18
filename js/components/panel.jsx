@@ -1,6 +1,7 @@
 var React = require('react');
 var Col = require('react-bootstrap/Col');
-var hljs = require('highlight.js');
+var Row = require('react-bootstrap/Row');
+var Prism = require('prismjs');
 var github = require('../github.jsx');
 
 module.exports = React.createClass({
@@ -12,7 +13,7 @@ module.exports = React.createClass({
   loadSource: function(s) {
     var self = this;
     github(s).then(function(content) {
-      var body = hljs.highlight('javascript', content).value;
+      var body = Prism.highlight(content, Prism.languages.javascript);
       var sources = self.state.sources;
       sources.push({
         body: body,
@@ -55,7 +56,10 @@ module.exports = React.createClass({
           <div className="panel-body">
             <p className="alert alert-info">{ this.props.text }</p>
 
-            { this.props.children }
+            <Row>
+              <Col md={3} />
+              <Col md={6}>{ this.props.children }</Col>
+            </Row>
           </div>
         </div>
         { sources }
