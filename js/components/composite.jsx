@@ -13,6 +13,7 @@ var Tree = require('./tree.jsx');
 var Bar = require('./bar.jsx');
 var Stack = require('./stack.jsx');
 var Voronoi = require('./voronoi.jsx');
+var Graph = require('./graph.jsx');
 var Disclaimer = require('./disclaimer.jsx');
 
 module.exports = React.createClass({
@@ -60,6 +61,10 @@ module.exports = React.createClass({
     <Panel key="voronoi" title="Voronoi" text="Move the mouse over the diagram to add a point"
       sources={ ['components/voronoi', 'charts/voronoi'] }>
       <Voronoi />
+    </Panel>,
+    <Panel key="graph" title="Graph" text="Here is a preliminary example of force-directed graph"
+      sources={ ['components/graph'] }>
+      <Graph />
     </Panel>
   ],
 
