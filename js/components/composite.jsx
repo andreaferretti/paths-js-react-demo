@@ -14,6 +14,7 @@ var Bar = require('./bar.jsx');
 var Stack = require('./stack.jsx');
 var Voronoi = require('./voronoi.jsx');
 var Graph = require('./graph.jsx');
+var Sankey = require('./sankey.jsx');
 var Disclaimer = require('./disclaimer.jsx');
 
 module.exports = React.createClass({
@@ -65,6 +66,10 @@ module.exports = React.createClass({
     <Panel key="graph" title="Graph" text="Here is a preliminary example of force-directed graph"
       sources={ ['components/graph'] }>
       <Graph />
+    </Panel>,
+    <Panel key="sankey" title="Sankey diagram" text="Sankey diagrams are typically used to visualize energy or material or cost transfers between processes"
+      sources={ ['components/sankey'] }>
+      <Sankey />
     </Panel>
   ],
 

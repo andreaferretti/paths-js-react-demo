@@ -64,7 +64,6 @@ module.exports = React.createClass({
       return <circle r={ 5 } cx={ n.point[0] } cy={ n.point[1] }
         stroke="grey" fill={ Colors.string(palette(i)) } />
     });
-    console.log(nodes);
     return (
       <svg width="500" height="430">
         <g transform="translate(20,20)">
