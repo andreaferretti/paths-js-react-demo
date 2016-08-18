@@ -2,6 +2,7 @@ var React = require('react');
 var Col = require('react-bootstrap/Col');
 var Row = require('react-bootstrap/Row');
 var Prism = require('prismjs');
+var Disclaimer = require('./disclaimer.jsx');
 var github = require('../github.jsx');
 
 module.exports = React.createClass({

@@ -13,6 +13,7 @@ var Tree = require('./tree.jsx');
 var Bar = require('./bar.jsx');
 var Stack = require('./stack.jsx');
 var Voronoi = require('./voronoi.jsx');
+var Disclaimer = require('./disclaimer.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -84,6 +85,7 @@ module.exports = React.createClass({
           <div className="center-wrap">
             <div className="center">{ selectors }</div>
           </div>
+          <Disclaimer />
         </Row>
         <Row>
           { this.components[n] }

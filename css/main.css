@@ -19,6 +19,10 @@
   padding: 5px;
 }
 
+.disclaimer {
+  margin: 20px 0 -30px;
+}
+
 .chart-panel {
   margin-top: 50px;
 }
