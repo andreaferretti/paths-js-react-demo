@@ -21,7 +21,7 @@ var Disclaimer = require('./disclaimer.jsx');
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      select: 11
+      select: 0
     };
   },
 
