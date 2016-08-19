@@ -50,7 +50,7 @@ module.exports = React.createClass({
     <Panel key="speed-dial" title="Speed dial" text="We use a pie chart to track the mouse speed" sources={ ['components/dial'] }>
       <Dial />
     </Panel>,
-    <Panel key="tree" title="Tree" text="Here is a Tree Graph" sources={ ['components/tree'] }>
+    <Panel key="tree" title="Tree" text="Here is a Tree Graph" sources={ ['components/tree', 'data/ducks'] }>
       <Tree />
     </Panel>,
     <Panel key="bar" title="Bar" text="Point over the bars to animate" sources={ ['components/bar'] }>
@@ -68,7 +68,7 @@ module.exports = React.createClass({
       <Graph />
     </Panel>,
     <Panel key="sankey" title="Sankey diagram" text="Sankey diagrams are typically used to visualize energy or material or cost transfers between processes"
-      sources={ ['components/sankey'] }>
+      sources={ ['components/sankey', 'data/sankey'] }>
       <Sankey />
     </Panel>
   ],

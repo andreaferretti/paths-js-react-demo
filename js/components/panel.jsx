@@ -34,10 +34,12 @@ module.exports = React.createClass({
   },
   render: function() {
     var sources = this.state.sources.map(function (s) {
+      var suffix = s.title.startsWith('data/') ? '.json' : '.jsx';
+
       return(
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h2 className="panel-title">{ s.title }.jsx</h2>
+            <h2 className="panel-title">{ s.title }{ suffix }</h2>
           </div>
 
           <div className="panel-body">
