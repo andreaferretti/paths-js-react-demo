@@ -15,12 +15,13 @@ var Stack = require('./stack.jsx');
 var Voronoi = require('./voronoi.jsx');
 var Graph = require('./graph.jsx');
 var Sankey = require('./sankey.jsx');
+var Waterfall = require('./waterfall.jsx');
 var Disclaimer = require('./disclaimer.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      select: 0
+      select: 11
     };
   },
 
@@ -70,6 +71,10 @@ module.exports = React.createClass({
     <Panel key="sankey" title="Sankey diagram" text="Sankey diagrams are typically used to visualize energy or material or cost transfers between processes"
       sources={ ['components/sankey', 'data/sankey'] }>
       <Sankey />
+    </Panel>,
+    <Panel key="waterfall" title="Waterfall diagram" text="A breakdown of incomes and costs for each month"
+      sources={ ['components/waterfall', 'data/waterfall'] }>
+      <Waterfall />
     </Panel>
   ],
 

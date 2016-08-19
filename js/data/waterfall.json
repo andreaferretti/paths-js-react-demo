@@ -1,0 +1,83 @@
+[
+  [
+    {
+      "name":"Gross income",
+      "value":30,
+      "absolute":true
+    },
+    {
+      "name":"Transport",
+      "value":-6
+    },
+    {
+      "name":"Distribution",
+      "value":-3
+    },
+    {
+      "name":"Detail income",
+      "absolute":true
+    },
+    {
+      "name":"Taxes",
+      "value":-8
+    },
+    {
+      "name":"Net income",
+      "absolute":true
+    }
+  ],
+  [
+    {
+      "name":"Gross income",
+      "value":33,
+      "absolute":true
+    },
+    {
+      "name":"Transport",
+      "value":-4
+    },
+    {
+      "name":"Distribution",
+      "value":-5
+    },
+    {
+      "name":"Detail income",
+      "absolute":true
+    },
+    {
+      "name":"Taxes",
+      "value":-7
+    },
+    {
+      "name":"Net income",
+      "absolute":true
+    }
+  ],
+  [
+    {
+      "name":"Gross income",
+      "value":40,
+      "absolute":true
+    },
+    {
+      "name":"Transport",
+      "value":-3
+    },
+    {
+      "name":"Distribution",
+      "value":-5
+    },
+    {
+      "name":"Detail income",
+      "absolute":true
+    },
+    {
+      "name":"Taxes",
+      "value":-4
+    },
+    {
+      "name":"Net income",
+      "absolute":true
+    }
+  ]
+]
