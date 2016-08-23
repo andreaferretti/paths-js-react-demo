@@ -16,6 +16,7 @@ var Voronoi = require('./voronoi.jsx');
 var Graph = require('./graph.jsx');
 var Sankey = require('./sankey.jsx');
 var Waterfall = require('./waterfall.jsx');
+var Radar = require('./radar.jsx');
 var Disclaimer = require('./disclaimer.jsx');
 
 module.exports = React.createClass({
@@ -75,6 +76,10 @@ module.exports = React.createClass({
     <Panel key="waterfall" title="Waterfall diagram" text="A breakdown of incomes and costs for each month"
       sources={ ['components/waterfall', 'data/waterfall'] }>
       <Waterfall />
+    </Panel>,
+    <Panel key="radar" title="Radar chart" text="Here is a radar chart showing Pokémon stats. Try changing Pokémon"
+      sources={ ['components/radar', 'data/pokemon'] }>
+      <Radar />
     </Panel>
   ],
 

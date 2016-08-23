@@ -120,3 +120,26 @@
     stroke: #336699;
     fill: none;
 }
+
+/*Radar*/
+
+.radar path {
+  opacity: 0.8;
+}
+
+.radar text {
+  font-size: 10px;
+}
+
+.pokemon-info {
+  float: right;
+  min-width: 140px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #eeeeee;
+}
+
+.pokemon-info .label {
+  float: right;
+}

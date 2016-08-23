@@ -18,7 +18,7 @@ function interpolate(a, b, t) {
   if (typeof b === 'number') {
     return a + (b - a) * t;
   }
-  return a;
+  return b;
 }
 
 function copy(obj) {
