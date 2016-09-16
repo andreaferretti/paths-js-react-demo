@@ -143,3 +143,9 @@
 .pokemon-info .label {
   float: right;
 }
+
+/*Scatterplot*/
+
+.scatterplot text {
+  font-size: 11px;
+}

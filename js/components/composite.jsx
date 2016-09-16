@@ -17,6 +17,7 @@ var Graph = require('./graph.jsx');
 var Sankey = require('./sankey.jsx');
 var Waterfall = require('./waterfall.jsx');
 var Radar = require('./radar.jsx');
+var Scatterplot = require('./scatterplot.jsx');
 var Disclaimer = require('./disclaimer.jsx');
 
 module.exports = React.createClass({
@@ -80,6 +81,10 @@ module.exports = React.createClass({
     <Panel key="radar" title="Radar chart" text="Here is a radar chart showing Pokémon stats. Try changing Pokémon"
       sources={ ['components/radar', 'data/pokemon'] }>
       <Radar />
+    </Panel>,
+    <Panel key="scatterplot" title="Scatterplot" text="The stock chart can also be used to plot scattered data. Here are rating data for the Twin Peaks episodes."
+      sources={ ['components/scatterplot', 'data/twin-peaks'] }>
+      <Scatterplot />
     </Panel>
   ],
 
