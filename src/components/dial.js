@@ -37,13 +37,13 @@ module.exports = React.createClass({
   },
 
   update: function() {
-    var speed = this.diff(mousex || 0, mousey || 0);
+    var speed = this.diff(this.context.mousex || 0, this.context.mousey || 0);
     this.state.speeds.shift();
     this.state.speeds.push(speed);
 
     this.setState({
-      x: mousex || 0,
-      y: mousey || 0
+      x: this.context.mousex || 0,
+      y: this.context.mousey || 0
     });
   },
 

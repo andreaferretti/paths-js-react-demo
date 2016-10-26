@@ -1,13 +1,13 @@
 var React = require('react');
-var Row = require('react-bootstrap/Row');
-var Button = require('react-bootstrap/Button');
-var ButtonGroup = require('react-bootstrap/ButtonGroup');
-var Panel = require('./panel.jsx');
+var Row = require('react-bootstrap').Row;
+var Button = require('react-bootstrap').Button;
+var ButtonGroup = require('react-bootstrap').ButtonGroup;
+var Panel = require('./panel');
 var Logo = require('./logo.jsx');
 var Pie = require('./pie.jsx');
 var Timeline = require('./timeline.jsx');
 var Timeline2 = require('./timeline2.jsx');
-var Dial = require('./dial.jsx');
+var Dial = require('./dial');
 var Drawing = require('./drawing.jsx');
 var Tree = require('./tree.jsx');
 var Bar = require('./bar.jsx');
@@ -15,8 +15,8 @@ var Stack = require('./stack.jsx');
 var Voronoi = require('./voronoi.jsx');
 var Graph = require('./graph.jsx');
 var Sankey = require('./sankey.jsx');
-var Waterfall = require('./waterfall.jsx');
-var Radar = require('./radar.jsx');
+var Waterfall = require('./waterfall');
+var Radar = require('./radar');
 var Scatterplot = require('./scatterplot.jsx');
 var Disclaimer = require('./disclaimer.jsx');
 
@@ -94,7 +94,7 @@ module.exports = React.createClass({
     var selectors = this.components.map(function(c, i) {
       var active = i == self.state.select;
       var bsStyle = active ? "primary" : "default";
-      var src = "images/" + c.props.title + ".png";
+      var src = process.env.PUBLIC_URL + "images/" + c.props.title + ".png";
       return <div key={ i } onClick={ self.select.bind(self, i) } className="selector">
         <img src={ src } alt={ c.props.title } height={ 70 } />
         <p>{ c.props.title }</p>

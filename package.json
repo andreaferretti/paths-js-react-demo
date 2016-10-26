@@ -10,40 +10,27 @@
     "demo"
   ],
   "scripts": {
-    "start": "npm run watch",
-    "clean": "mkdir -p docs && rimraf docs/*",
-    "browserify": "browserify js/main.jsx -t reactify -d -p [minifyify --map main.js.map --output docs/main.js.map] -o docs/main.js",
-    "html": "cp index.html docs",
-    "fonts": "cp -r fonts docs",
-    "images": "cp -r images docs",
-    "styles": "cp -r css docs && cp node_modules/bootstrap/dist/css/bootstrap.min.css docs/css && cp node_modules/prismjs/themes/prism.css docs/css",
-    "server": "browser-sync start --files \"docs/main.css,docs/main.js\" --server docs --reload-delay 500",
-    "build": "npm run clean && npm run html && npm run fonts && npm run images && npm run styles && npm run browserify",
-    "dist": "NODE_ENV=production npm run build",
-    "watch": "npm run build && parallelshell \"npm run watchify\" \"npm run server\"",
-    "watchify": "watchify js/main.jsx -t reactify -d -p [minifyify --map main.js.map --output docs/main.js.map] -o docs/main.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "bluebird": "^3.1.1",
-    "bootstrap": "^3.3.6",
+    "bluebird": "^3.4.6",
+    "bootstrap": "^3.3.7",
     "fetchify": "0.0.2",
-    "lodash": "^3.10.1",
-    "paths-js": "^0.4.3",
+    "lodash": "^4.16.4",
+    "paths-js": "^0.4.4",
     "prismjs": "^1.5.1",
-    "react": "^0.12.2",
-    "react-bootstrap": "^0.14.0",
-    "vivus": "^0.2.3"
+    "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
+    "react-dom": "^15.3.2",
+    "vivus": "^0.4.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.10.0",
-    "browserify": "^12.0.1",
-    "minifyify": "^7.1.0",
-    "parallelshell": "^2.0.0",
-    "reactify": "^1.1.1",
-    "rimraf": "^2.4.4",
-    "watchify": "^3.6.1"
+    "react-scripts": "0.7.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=3.0.0"
   }
 }

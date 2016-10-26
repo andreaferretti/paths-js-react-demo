@@ -1,4 +1,4 @@
-var React = require('react');
+// var React = require('react');
 
 function interpolate(a, b, t) {
   if (Array.isArray(b)) {
@@ -7,7 +7,7 @@ function interpolate(a, b, t) {
     });
   }
   if (typeof b === 'object') {
-    var res = {}, k;
+    var res = {};
     for (var k in b) {
       // No need to check hasOwnProperty,
       // we are working with object literals
@@ -79,17 +79,18 @@ var easingTypes = {
   easeOutBounce: function (t) {
     var q = 2.75 * t;
     var l = 7.5625;
+    var p = undefined;
     if (q < 1) { return l * t * t }
     else if (q < 2) {
-      var p = t - 1.5 / 2.75;
+      p = t - 1.5 / 2.75;
       return l * p * p + 0.75;
     }
     else if (q < 2.5) {
-      var p = t - 2.25 / 2.75;
+      p = t - 2.25 / 2.75;
       return l * p * p + 0.9375;
     }
     else {
-      var p = t - 2.625 / 2.75;
+      p = t - 2.625 / 2.75;
       return l * p * p + 0.984375;
     }
   },

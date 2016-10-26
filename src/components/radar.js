@@ -1,8 +1,8 @@
 var React = require('react');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var Radar = require('paths-js/radar');
 var Colors = require('../palette/colors.jsx');
-var util = require('../palette/util.jsx');
+// var util = require('../palette/util.jsx');
 var Animate = require('../animate.jsx');
 var data = require('../data/pokemon.json');
 
@@ -16,7 +16,7 @@ function keyAccessor(keys) {
 
 var labels = ['hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed'];
 var palette = Colors.mix({r: 130, g: 140, b: 210}, {r: 180, g: 205, b: 150});
-var colors = util.palette_to_function(palette);
+// var colors = util.palette_to_function(palette);
 
 module.exports = React.createClass({
   mixins: [Animate.Mixin],
@@ -42,7 +42,7 @@ module.exports = React.createClass({
     });
     var color = this.state.color;
     var rings = radar.rings.map(function(r, i) {
-      if (i == 2) {
+      if (i === 2) {
         var lines = r.path.points().map(function(p, j) {
           var x = p[0];
           var y = p[1];

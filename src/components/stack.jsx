@@ -14,11 +14,10 @@ module.exports = React.createClass({
   scaledByIndex: function(index, scale, matrix) {
     if (index===undefined)
       return matrix;
-    var scale = scale || 0;
-    var matrix = matrix || this.props.data;
-    return matrix.map(function(array, i){
+    var m = matrix || this.props.data;
+    return m.map(function(array, i){
       return array.map(function(value){
-        return (i==index) ? value : value*scale;
+        return (i===index) ? value : value*(scale || 0);
       });
     });
   },

@@ -38,12 +38,13 @@ module.exports = React.createClass({
     return coords(el);
   },
   svgMouseCoords: function(e, recomputeSvgCoords) {
+    var svgCoords = undefined;
     if (recomputeSvgCoords) {
-      var svgCoords = this.svgCoords();
+      svgCoords = this.svgCoords();
       this.setState({ svgCoords: svgCoords });
     }
     else {
-      var svgCoords = this.state.svgCoords;
+      svgCoords = this.state.svgCoords;
     }
     return {
       x: e.pageX - svgCoords.x,

@@ -1,5 +1,5 @@
 var React = require('react');
-var Input = require('react-bootstrap/Input');
+var Input = require('react-bootstrap').Input;
 var Waterfall = require('paths-js/waterfall');
 var Animate = require('../animate.jsx');
 var data = require('../data/waterfall.json');

@@ -5,13 +5,13 @@ var data = require('../data/sankey.json');
 var palette = ['#707b82', '#7881c2', '#3e90f0'];
 
 function opacity(i, j) {
-  if (j == null) return 0.7;
-  if (j == i) return 1;
+  if (j === null) return 0.7;
+  if (j === i) return 1;
   return 0.3;
 }
 function opacityRect(item, start, end) {
-  if (start == null) return 0.7;
-  if ((item.id == start) || (item.id == end)) return 1;
+  if (start === null) return 0.7;
+  if ((item.id === start) || (item.id === end)) return 1;
   return 0.3;
 }
 
@@ -58,11 +58,12 @@ module.exports = React.createClass({
       var op = opacityRect(r.item, self.state.start, self.state.end);
       var x = r.curve.centroid[0];
       var y = r.curve.centroid[1];
+      var transform = undefined;
       if (r.group < data[0].nodes.length / 2) {
-        var transform = "translate(" + (x + 7) + "," + y + ")";
+        transform = "translate(" + (x + 7) + "," + y + ")";
         text = <text transform={ transform } style={{ opacity: op }} textAnchor="start">{ r.item.id }</text>;
       } else {
-        var transform = "translate(" + (x - 7) + "," + y + ")";
+        transform = "translate(" + (x - 7) + "," + y + ")";
         text = <text transform={ transform } style={{ opacity: op }} textAnchor="end">{ r.item.id }</text>;
       }
       return <g>

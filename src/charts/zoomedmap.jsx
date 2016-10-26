@@ -1,6 +1,6 @@
 var React = require('react');
 var SmootLine = require('paths-js/smooth-line');
-var Linear = require('paths-js/linear');
+// var Linear = require('paths-js/linear');
 var _ = require('lodash');
 
 module.exports = React.createClass({

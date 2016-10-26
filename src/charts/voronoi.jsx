@@ -67,7 +67,7 @@ module.exports = React.createClass({
       return <path fill={curve.patchColor} fillOpacity="0.3"
         d={curve.line.path.print()} stroke="grey" strokeWidth="0.2"/>
     });
-    var points = voronoi.nodes.map(function(node, i) {
+    var pointz = voronoi.nodes.map(function(node, i) {
       return <circle cx={node.point[0]} cy={node.point[1]}
         r="3" fill={self.circleFill(i)} />
     });
@@ -76,7 +76,7 @@ module.exports = React.createClass({
         <svg width="500" height="380" id="voronoi-svg" onMouseOver={this.addPoint}>
           <g>
             {curves}
-            {points}
+            {pointz}
           </g>
         </svg>
       </div>
