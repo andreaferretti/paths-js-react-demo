@@ -1,6 +1,6 @@
 var React = require('react');
-var Colors = require('../palette/colors.jsx');
-var util = require('../palette/util.jsx');
+var Colors = require('../palette/colors');
+var util = require('../palette/util');
 var Graph = require('paths-js/graph');
 var _ = require('lodash');
 
