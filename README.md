@@ -6,17 +6,13 @@ This is an application to demonstrate the use of [Paths.js](https://github.com/a
 Running
 -------
 
-The application uses NPM to manage the dependencies. To run it, first install the dependencies with
+The application uses [Create React App](https://github.com/facebookincubator/create-react-app). To run it, first install the dependencies with
 
     npm install
 
 Then a running server can start with
 
     npm start
-
-Otherwise a self-contained distribution can be obtained with
-
-    npm run build
 
 Status
 ------
