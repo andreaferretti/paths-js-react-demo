@@ -1,5 +1,5 @@
 var React = require('react');
-var Animate = require('../animate.jsx');
+var Animate = require('../animate');
 
 module.exports = React.createClass({
   mixins: [Animate.Mixin],

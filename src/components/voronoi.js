@@ -1,5 +1,5 @@
 var React = require('react');
-var Voronoi = require('../charts/voronoi.jsx');
+var Voronoi = require('../charts/voronoi');
 
 
 var points = [];

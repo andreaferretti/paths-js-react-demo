@@ -1,7 +1,7 @@
 var React = require('react');
 var Input = require('react-bootstrap').Input;
 var Waterfall = require('paths-js/waterfall');
-var Animate = require('../animate.jsx');
+var Animate = require('../animate');
 var data = require('../data/waterfall.json');
 
 function translate(curve) {

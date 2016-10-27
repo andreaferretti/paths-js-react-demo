@@ -2,8 +2,8 @@ var React = require('react');
 var Col = require('react-bootstrap').Col;
 var Row = require('react-bootstrap').Row;
 var Prism = require('prismjs');
-var Disclaimer = require('./disclaimer.jsx');
-var github = require('../github.jsx');
+var Disclaimer = require('./disclaimer');
+var github = require('../github');
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -34,7 +34,7 @@ module.exports = React.createClass({
   },
   render: function() {
     var sources = this.state.sources.map(function(s, i) {
-      var suffix = s.title.startsWith('data/') ? '.json' : '.jsx';
+      var suffix = s.title.startsWith('data/') ? '.json' : '';
 
       return(
         <div key={i} className="panel panel-default">

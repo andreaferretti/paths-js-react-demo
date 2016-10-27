@@ -1,33 +1,36 @@
 var React = require('react');
-var Animate = require('../animate.jsx');
-var Colors = require('../palette/colors.jsx');
-var Bar = require('paths-js/bar');
+var Animate = require('../animate');
+var Colors = require('../palette/colors');
+var Stack = require('paths-js/stack');
 
 module.exports = React.createClass({
 
   mixins: [Animate.Mixin],
 
+  cyclic: function(array, i) {
+    return array[i % array.length];
+  },
+
   scaledByIndex: function(index, scale, matrix) {
     if (index===undefined)
       return matrix;
-    var scale = scale || 0;
-    var matrix = matrix || this.props.data;
-    return matrix.map(function(array, i){
+    var m = matrix || this.props.data;
+    return m.map(function(array, i){
       return array.map(function(value){
-        return (i==index) ? value : value*scale;
+        return (i===index) ? value : value*(scale || 0);
       });
     });
   },
 
-  handleMouseOver: function(index) {
+  handleMouseOver: function(index){
     this.animateState({data: this.scaledByIndex(index, 0.1)});
   },
 
-  handleMouseLeave: function() {
+  handleMouseLeave: function(){
     this.animateState({data: this.props.data});
   },
 
-  getInitialState: function() {
+  getInitialState: function(){
     return {data: this.props.data};
   },
 
@@ -35,7 +38,6 @@ module.exports = React.createClass({
     return {
       width: 420,
       height: 350,
-      gutter: 10,
       palette: Colors.mix({
           r: 130,
           g: 140,
@@ -52,30 +54,30 @@ module.exports = React.createClass({
 
     var self = this;
 
-    var bar = Bar({
+    var stack = Stack({
       data: this.state.data,
-      width: this.props.width,
-      height: this.props.height,
       accessor: this.props.accessor,
-      compute: {
-        color: function(i) {
-          return Colors.string(self.props.palette[i % self.props.palette.length]);
-        }
-      },
+      width: this.props.width,
+      height:this.props.height,
       gutter: this.props.gutter,
+      compute: {
+        color: function(index, item, group){
+          return Colors.string(self.cyclic(self.props.palette, group));
+        }
+      }
     });
 
-    var curves = bar.curves.map(function(curve){
+    var curves = stack.curves.map(function(curve){
       return <path d={curve.line.path.print()} fill={curve.color}
-      onMouseOver={function(event){self.handleMouseOver(curve.index)}}
-      onMouseLeave={self.handleMouseLeave}/>;
-    });
+              onMouseOver={function(event){self.handleMouseOver(curve.group)}}
+              onMouseLeave={self.handleMouseLeave}/>;
+      });
 
     return (
-      <div id="bar">
+      <div id="stack">
         <svg width="500" height="380">
           <g transform="translate(40, 10)">
-            { curves }
+          {curves}
           </g>
         </svg>
       </div>

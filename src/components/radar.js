@@ -1,9 +1,9 @@
 var React = require('react');
 var Input = require('react-bootstrap').Input;
 var Radar = require('paths-js/radar');
-var Colors = require('../palette/colors.jsx');
-// var util = require('../palette/util.jsx');
-var Animate = require('../animate.jsx');
+var Colors = require('../palette/colors');
+// var util = require('../palette/util');
+var Animate = require('../animate');
 var data = require('../data/pokemon.json');
 
 function keyAccessor(keys) {

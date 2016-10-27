@@ -1,5 +1,5 @@
 var React = require('react');
-var Timeline = require('../charts/timeline.jsx');
+var Zoomable = require('../charts/zoomable');
 
 function makeData() {
   var data = [];
@@ -23,6 +23,11 @@ function value(d) { return d.value; }
 
 module.exports = React.createClass({
   render: function() {
-    return <Timeline data={ makeData() } xaccessor={ date } yaccessor={ value } />
+    return <Zoomable
+      data={ makeData() }
+      xaccessor={ date }
+      yaccessor={ value }
+      width={ 420 }
+      height={ 340 } />
   }
 });

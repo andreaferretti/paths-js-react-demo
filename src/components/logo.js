@@ -1,5 +1,5 @@
 var React = require('react');
-var Animate = require('../animate.jsx');
+var Animate = require('../animate');
 var Bezier = require('paths-js/bezier');
 
 var points = [

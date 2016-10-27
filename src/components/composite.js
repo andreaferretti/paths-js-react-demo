@@ -1,22 +1,22 @@
 var React = require('react');
 var Row = require('react-bootstrap').Row;
 var Panel = require('./panel');
-var Logo = require('./logo.jsx');
-var Pie = require('./pie.jsx');
-var Timeline = require('./timeline.jsx');
-var Timeline2 = require('./timeline2.jsx');
+var Logo = require('./logo');
+var Pie = require('./pie');
+var Timeline = require('./timeline');
+var Timeline2 = require('./timeline2');
 var Dial = require('./dial');
-var Drawing = require('./drawing.jsx');
-var Tree = require('./tree.jsx');
-var Bar = require('./bar.jsx');
-var Stack = require('./stack.jsx');
-var Voronoi = require('./voronoi.jsx');
-var Graph = require('./graph.jsx');
-var Sankey = require('./sankey.jsx');
+var Drawing = require('./drawing');
+var Tree = require('./tree');
+var Bar = require('./bar');
+var Stack = require('./stack');
+var Voronoi = require('./voronoi');
+var Graph = require('./graph');
+var Sankey = require('./sankey');
 var Waterfall = require('./waterfall');
 var Radar = require('./radar');
-var Scatterplot = require('./scatterplot.jsx');
-var Disclaimer = require('./disclaimer.jsx');
+var Scatterplot = require('./scatterplot');
+var Disclaimer = require('./disclaimer');
 
 module.exports = React.createClass({
   getInitialState: function() {
