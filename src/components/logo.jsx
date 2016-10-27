@@ -38,8 +38,8 @@ module.exports = React.createClass({
   render: function() {
     var self = this;
     var line = Bezier({ points: this.state.points });
-    var circles = line.path.points().map(function(p) {
-      return <circle onClick={ self.shuffle } r={5} cx={p[0]} cy={p[1]} stroke="red" strokeWidth={2} fill="white" />
+    var circles = line.path.points().map(function(p, i) {
+      return <circle key={i} onClick={ self.shuffle } r={5} cx={p[0]} cy={p[1]} stroke="red" strokeWidth={2} fill="white" />
     });
 
     return <div id="logo" className="col-md-12">

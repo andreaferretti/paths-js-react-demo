@@ -1,24 +1,39 @@
 var React = require('react');
 var Pie = require('paths-js/pie');
-
-window.mousex = 0;
-window.mousey = 0;
+var update = require('react-addons-update');
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
       x: 0,
       y: 0,
+      mousey: 0,
+      mousex: 0,
       speeds: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
   },
 
-  componentWillMount: function() {
-    setInterval(this.update, 16);
-    window.addEventListener('mousemove', function(event) {
-      window.mousex = event.clientX;
-      window.mousey = event.clientY;
+  handleMouseEvent: function(event) {
+    console.log('handleMouseEvent');
+    console.log(this.state.mousex, event.clientX);
+    console.log(event.clientY, event.clientY);
+    this.setState({
+      mousex: event.clientX,
+      mousey: event.clientY
     });
+  },
+
+
+  componentWillUnmount: function() {
+    window.removeEventListener('mousemove', this.handleMouseEvent);
+  },
+
+  componentWillMount: function() {
+    window.addEventListener('mousemove', this.handleMouseEvent);
+  },
+
+  componentDidMount: function() {
+    setInterval(this.updateSpeeds, 16);
   },
 
   diff: function(x, y) {
@@ -36,14 +51,14 @@ module.exports = React.createClass({
     return tot / len;
   },
 
-  update: function() {
-    var speed = this.diff(this.context.mousex || 0, this.context.mousey || 0);
-    this.state.speeds.shift();
-    this.state.speeds.push(speed);
-
+  updateSpeeds: function() {
+    var speed = this.diff(this.state.mousex || 0, this.state.mousey || 0);
+    var newSpeeds = update(this.state.speeds, {$push: [speed]});
+    newSpeeds.shift();
     this.setState({
-      x: this.context.mousex || 0,
-      y: this.context.mousey || 0
+      x: this.state.mousex || 0,
+      y: this.state.mousey || 0,
+      speeds: newSpeeds
     });
   },
 
@@ -57,7 +72,7 @@ module.exports = React.createClass({
       accessor: function(x) { return x }
     });
 
-    return <svg width="375" height="400">
+    return <svg width="375" height="400" onMouseMove={this.handleMouseEvent}>
       <linearGradient id="dial-grad">
         <stop stopColor="red" offset="0%"/>
         <stop stopColor="green" offset="100%"/>

@@ -1,7 +1,5 @@
 var React = require('react');
 var Row = require('react-bootstrap').Row;
-var Button = require('react-bootstrap').Button;
-var ButtonGroup = require('react-bootstrap').ButtonGroup;
 var Panel = require('./panel');
 var Logo = require('./logo.jsx');
 var Pie = require('./pie.jsx');
@@ -51,7 +49,7 @@ module.exports = React.createClass({
       <Timeline2 />
     </Panel>,
     <Panel key="speed-dial" title="Speed dial" text="We use a pie chart to track the mouse speed" sources={ ['components/dial'] }>
-      <Dial />
+      <Dial mousex={0} mousey={0}/>
     </Panel>,
     <Panel key="tree" title="Tree" text="Here is a Tree Graph" sources={ ['components/tree', 'data/ducks'] }>
       <Tree />
@@ -92,8 +90,6 @@ module.exports = React.createClass({
     var n = this.state.select % this.components.length;
     var self = this;
     var selectors = this.components.map(function(c, i) {
-      var active = i == self.state.select;
-      var bsStyle = active ? "primary" : "default";
       var src = process.env.PUBLIC_URL + "images/" + c.props.title + ".png";
       return <div key={ i } onClick={ self.select.bind(self, i) } className="selector">
         <img src={ src } alt={ c.props.title } height={ 70 } />
