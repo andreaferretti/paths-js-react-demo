@@ -14,26 +14,23 @@ module.exports = React.createClass({
   },
 
   handleMouseEvent: function(event) {
-    console.log('handleMouseEvent');
-    console.log(this.state.mousex, event.clientX);
-    console.log(event.clientY, event.clientY);
     this.setState({
       mousex: event.clientX,
       mousey: event.clientY
     });
   },
 
-
   componentWillUnmount: function() {
     window.removeEventListener('mousemove', this.handleMouseEvent);
   },
 
-  componentWillMount: function() {
-    window.addEventListener('mousemove', this.handleMouseEvent);
-  },
+  // componentWillMount: function() {
+  //   window.addEventListener('mousemove', this.handleMouseEvent);
+  // },
 
   componentDidMount: function() {
     setInterval(this.updateSpeeds, 16);
+    window.addEventListener('mousemove', this.handleMouseEvent);
   },
 
   diff: function(x, y) {
