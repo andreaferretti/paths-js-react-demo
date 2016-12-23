@@ -63,6 +63,7 @@ module.exports = React.createClass({
         }
       },
       gutter: this.props.gutter,
+      offset: [40, 10]
     });
 
     var curves = bar.curves.map(function(curve){
@@ -74,9 +75,7 @@ module.exports = React.createClass({
     return (
       <div id="bar">
         <svg width="500" height="380">
-          <g transform="translate(40, 10)">
-            { curves }
-          </g>
+          { curves }
         </svg>
       </div>
     );
