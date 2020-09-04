@@ -30,7 +30,7 @@
     "lodash": "^3.10.1",
     "paths-js": "^0.4.5",
     "prismjs": "^1.5.1",
-    "react": "^0.12.2",
+    "react": "^16.13.1",
     "react-bootstrap": "^0.14.0",
     "vivus": "^0.2.3"
   },
